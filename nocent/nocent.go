@@ -67,7 +67,8 @@ func readUrl(url string) []byte {
     return bytes
 }
 
-func main() {
+func doit(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprint(w, "<html><body>")
     pos := readWords("data/LoughranMcDonald_Positive.csv")
     neg := readWords("data/LoughranMcDonald_Negative.csv")
 
@@ -79,6 +80,7 @@ func main() {
     reg, _ := regexp.Compile("[<>,\\.]")
     pos_count := 0
     neg_count := 0
+    allwords := make([]string, 0, 1000)
     for _, details := range v.Channel[0].Item {
         s := getBodyTextFromGlass(details.Link)
        
@@ -87,16 +89,31 @@ func main() {
 
         for _, word := range words {
             if pos[strings.ToUpper(word)] == true {
-                fmt.Printf("POS: %s\n", word)
                 pos_count++
+                allwords = append(allwords, word)
             }
             if neg[strings.ToUpper(word)] == true {
-                fmt.Printf("NEG: %s\n", word)
                 neg_count++
+                allwords = append(allwords, word)
             }
         }
     }
-    fmt.Println(pos_count)
-    fmt.Println(neg_count)
+    
+    fmt.Fprintf(w, "<span style='font-size: %dpx'>☺</span>", pos_count)
+    fmt.Fprintf(w, "<span style='font-size: %dpx'>☹</span>", neg_count)
 
+    /*
+    for wordy := range allwords {
+        fmt.Fprintf(w, "%s<br>\n", wordy)
+    }
+    */
+
+
+    fmt.Fprintf(w, "</body></html>")
+
+}
+
+func main() {
+    http.HandleFunc("/", doit)
+    http.ListenAndServe(":8080", nil)
 }
