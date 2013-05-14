@@ -29,6 +29,12 @@ func main() {
 	}
 	http.Handle("highlit.brnstz.com/", httputil.NewSingleHostReverseProxy(highlit_url))
 
+	inbox_url, err := url.Parse("http://localhost:8081")
+	if err != nil {
+		panic(err)
+	}
+	http.Handle("inbox.brnstz.com/", httputil.NewSingleHostReverseProxy(inbox_url))
+
 	err = http.ListenAndServe(":80", nil)
 
 	if err != nil {
