@@ -6,6 +6,9 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+DIR=`dirname $0`
+cd $DIR
+
 go build goserver.go
 ./goserver &
 echo $! > /var/run/goserver.pid
