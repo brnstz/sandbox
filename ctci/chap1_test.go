@@ -57,7 +57,7 @@ func isUniqNoDataStruct(input string) bool {
 	return true
 }
 
-// question 2.1
+// question 1.2
 func reverse(input []rune) []rune {
 	max_index := len(input) - 1
 
@@ -76,6 +76,12 @@ func reverse(input []rune) []rune {
 	}
 
 	return input
+
+}
+
+// question 1.3
+
+func isPermutation(input1, input2 []rune) bool {
 
 }
 
