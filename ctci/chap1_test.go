@@ -81,7 +81,37 @@ func reverse(input []rune) []rune {
 
 // question 1.3
 
+func createRuneCountMap(input []rune) (map[rune]int, int) {
+	count := map[rune]int{}
+	totalCount := 0
+	for _, c := range input {
+		count[c]++
+		totalCount++
+	}
+
+	return count, totalCount
+}
+
 func isPermutation(input1, input2 []rune) bool {
+	map1, count1 := createRuneCountMap(input1)
+	map2, count2 := createRuneCountMap(input2)
+
+	// if counts don't match, they use different set of characters, so can't
+	// possibly be a permutation. This also checks the case where map2
+	// has more keys than map1 and a mismatch wouldn't be caught below
+	if count1 != count2 {
+		return false
+	}
+
+	// We have the same amount of keys, so let's check the count of each one
+	for k, _ := range map1 {
+		if map1[k] != map2[k] {
+			return false
+		}
+	}
+
+	// We made it!
+	return true
 
 }
 
@@ -116,5 +146,20 @@ func TestReverse(t *testing.T) {
 	if output_string != "gnizama si gnihtyreve" {
 		t.Error("Reversed string does not match")
 	}
+}
 
+func TestPermutation(t *testing.T) {
+	input1 := []rune("this is a permutation")
+	input2 := []rune("thsi si a permuttaion")
+
+	input3 := []rune("this is a permutationzzzzz")
+	input4 := []rune("thsi si a permuttaion nope")
+
+	if !isPermutation(input1, input2) {
+		t.Error("input1 and input2 should return true for isPermutation")
+	}
+
+	if isPermutation(input3, input4) {
+		t.Error("input3 and input4 should return false for isPermutation")
+	}
 }
