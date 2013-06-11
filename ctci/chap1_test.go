@@ -115,6 +115,29 @@ func isPermutation(input1, input2 []rune) bool {
 
 }
 
+// question 1.4
+func urlencodeSpaces(input []rune, trueLen int) []rune {
+
+	dataLen := len(input)
+	toLoc := dataLen - 1
+	bufferRemaining := dataLen - trueLen
+
+	for toLoc >= 0 {
+		fromLoc := toLoc - bufferRemaining
+
+		if input[fromLoc] == ' ' {
+			input[toLoc], input[toLoc-1], input[toLoc-2] = '0', '2', '%'
+			toLoc -= 3
+			bufferRemaining -= 2
+		} else {
+			input[toLoc] = input[fromLoc]
+			toLoc -= 1
+		}
+	}
+
+	return input
+}
+
 // from https://groups.google.com/group/golang-nuts/browse_thread/thread/571811b0ea0da610
 func funcName(f interface{}) string {
 	p := reflect.ValueOf(f).Pointer()
@@ -162,4 +185,16 @@ func TestPermutation(t *testing.T) {
 	if isPermutation(input3, input4) {
 		t.Error("input3 and input4 should return false for isPermutation")
 	}
+}
+
+func TestUrlEncodeSpaces(t *testing.T) {
+	input1 := []rune("abcd ef hiaaa a      ")
+	len1 := 15
+
+	output1 := urlencodeSpaces(input1, len1)
+
+	if string(output1) != "abcd%20ef%20hiaaa%20a" {
+		t.Error("output incorrect")
+	}
+
 }
