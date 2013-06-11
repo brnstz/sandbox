@@ -1,6 +1,7 @@
 package chap1_test
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 	"reflect"
@@ -138,6 +139,47 @@ func urlencodeSpaces(input []rune, trueLen int) []rune {
 	return input
 }
 
+// question 1.5
+
+func compressString(input string) string {
+	var lastChar rune
+	lastChar = 0
+
+	charRunCount := 1
+	oldStrLen := 0
+	newStrLen := 0
+
+	var buffer bytes.Buffer
+
+	for _, curChar := range input {
+		oldStrLen += 1
+
+		if curChar == lastChar {
+			charRunCount++
+
+		} else {
+			if lastChar != 0 {
+				buffer.WriteString(fmt.Sprintf("%c%d", lastChar, charRunCount))
+				charRunCount = 1
+				newStrLen += 2
+			}
+		}
+
+		lastChar = curChar
+	}
+
+	if lastChar != 0 {
+		buffer.WriteString(fmt.Sprintf("%c%d", lastChar, charRunCount))
+		newStrLen += 2
+	}
+
+	if newStrLen < oldStrLen {
+		return buffer.String()
+	} else {
+		return input
+	}
+}
+
 // from https://groups.google.com/group/golang-nuts/browse_thread/thread/571811b0ea0da610
 func funcName(f interface{}) string {
 	p := reflect.ValueOf(f).Pointer()
@@ -196,5 +238,14 @@ func TestUrlEncodeSpaces(t *testing.T) {
 	if string(output1) != "abcd%20ef%20hiaaa%20a" {
 		t.Error("output incorrect")
 	}
+}
 
+func TestCompress(t *testing.T) {
+	if compressString("hello") != "hello" {
+		t.Error("should return original string")
+	}
+
+	if compressString("hhhhhuuuuuuuklmmmmm") != "h5u7k1l1m5" {
+		t.Error("should return compressed string")
+	}
 }
