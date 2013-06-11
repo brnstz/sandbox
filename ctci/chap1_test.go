@@ -180,6 +180,31 @@ func compressString(input string) string {
 	}
 }
 
+func rotateMatrix(matrix []int, n int) []int {
+
+	newMatrix := make([]int, n*n, n*n)
+
+	for x := 0; x < n; x++ {
+		for y := 0; y < n; y++ {
+			xp := n - y - 1
+			yp := x
+			fmt.Fprintln(os.Stderr, "x: ", x)
+			fmt.Fprintln(os.Stderr, "y: ", y)
+			fmt.Fprintln(os.Stderr, "xp: ", xp)
+			fmt.Fprintln(os.Stderr, "yp: ", yp)
+			fmt.Fprintln(os.Stderr, "n: ", n)
+			fmt.Fprintln(os.Stderr, "x*n+y: ", x*n+y)
+			val := matrix[x*(n-1)+y]
+			fmt.Fprintln(os.Stderr, "val: ", val)
+			fmt.Fprintln(os.Stderr, newMatrix)
+			fmt.Fprintln(os.Stderr, "xp*n+yp", xp*n+yp)
+			newMatrix[xp*(n-1)+yp] = val
+		}
+	}
+
+	return newMatrix
+}
+
 // from https://groups.google.com/group/golang-nuts/browse_thread/thread/571811b0ea0da610
 func funcName(f interface{}) string {
 	p := reflect.ValueOf(f).Pointer()
@@ -248,4 +273,11 @@ func TestCompress(t *testing.T) {
 	if compressString("hhhhhuuuuuuuklmmmmm") != "h5u7k1l1m5" {
 		t.Error("should return compressed string")
 	}
+}
+
+func TestMatrix(t *testing.T) {
+	x := []int{1, 2, 3, 4, 5, 6}
+	n := 3
+	newMatrix := rotateMatrix(x, n)
+	fmt.Fprintln(os.Stderr, newMatrix)
 }
