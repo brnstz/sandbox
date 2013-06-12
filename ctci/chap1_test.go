@@ -180,9 +180,51 @@ func compressString(input string) string {
 	}
 }
 
-func rotateMatrix(matrix []int, n int) []int {
+type matrixOp func(matrix []int, x, y, m int)
 
-	newMatrix := make([]int, n*n, n*n)
+func mIndex(x, y, m int) int {
+	return (x * m) + y
+}
+
+func transpose(matrix []int, x, y, m int) {
+	transposedIndex := mIndex(y, x, m)
+	origIndex := mIndex(x, y, m)
+	fmt.Println(origIndex, transposedIndex)
+	matrix[origIndex] = matrix[transposedIndex]
+}
+
+func operateOnMatrix(matrix []int, m int, opfunc matrixOp) {
+	for x := 0; x <= m/2; x++ {
+		for y := 0; y <= m/2; y++ {
+			opfunc(matrix, x, y, m)
+		}
+	}
+}
+
+func rotateMatrixFunc(matrix []int, m int) {
+	operateOnMatrix(matrix, m, transpose)
+
+}
+
+func rotateMatrix(origMatrix []int, m int) {
+	newMatrix := make([]int, m*m)
+	for x := 0; x < m; x++ {
+		for y := 0; y < m; y++ {
+			origIndex := mIndex(x, y, m)
+			newIndex := mIndex((m - y - 1), x, m)
+			fmt.Println(x, y)
+			fmt.Println(origIndex)
+			fmt.Println(newIndex)
+			newMatrix[newIndex] = origMatrix[origIndex]
+		}
+	}
+	fmt.Println(newMatrix)
+}
+
+/*
+func rotateMatrixOld(matrix []int, n int) []int {
+
+	newMatrix := make([]int, n*n)
 
 	for x := 0; x < n; x++ {
 		for y := 0; y < n; y++ {
@@ -204,6 +246,7 @@ func rotateMatrix(matrix []int, n int) []int {
 
 	return newMatrix
 }
+*/
 
 // from https://groups.google.com/group/golang-nuts/browse_thread/thread/571811b0ea0da610
 func funcName(f interface{}) string {
@@ -276,8 +319,8 @@ func TestCompress(t *testing.T) {
 }
 
 func TestMatrix(t *testing.T) {
-	x := []int{1, 2, 3, 4, 5, 6}
-	n := 3
-	newMatrix := rotateMatrix(x, n)
-	fmt.Fprintln(os.Stderr, newMatrix)
+	matrix := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	m := 3
+	rotateMatrix(matrix, m)
+	fmt.Fprintln(os.Stderr, matrix)
 }
