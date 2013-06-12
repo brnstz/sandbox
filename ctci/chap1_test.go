@@ -180,73 +180,48 @@ func compressString(input string) string {
 	}
 }
 
-type matrixOp func(matrix []int, x, y, m int)
-
 func mIndex(x, y, m int) int {
-	return (x * m) + y
+	return m*x + y
 }
 
-func transpose(matrix []int, x, y, m int) {
-	transposedIndex := mIndex(y, x, m)
-	origIndex := mIndex(x, y, m)
-	fmt.Println(origIndex, transposedIndex)
-	matrix[origIndex] = matrix[transposedIndex]
-}
-
-func operateOnMatrix(matrix []int, m int, opfunc matrixOp) {
-	for x := 0; x <= m/2; x++ {
-		for y := 0; y <= m/2; y++ {
-			opfunc(matrix, x, y, m)
-		}
-	}
-}
-
-func rotateMatrixFunc(matrix []int, m int) {
-	operateOnMatrix(matrix, m, transpose)
-
-}
-
-func rotateMatrix(origMatrix []int, m int) {
+// question 1.6 (not in place)
+func rotateMatrix(origMatrix []int, m int) []int {
 	newMatrix := make([]int, m*m)
 	for x := 0; x < m; x++ {
 		for y := 0; y < m; y++ {
 			origIndex := mIndex(x, y, m)
-			newIndex := mIndex((m - y - 1), x, m)
-			fmt.Println(x, y)
-			fmt.Println(origIndex)
-			fmt.Println(newIndex)
+			newIndex := mIndex(m-y-1, x, m)
 			newMatrix[newIndex] = origMatrix[origIndex]
-		}
-	}
-	fmt.Println(newMatrix)
-}
-
-/*
-func rotateMatrixOld(matrix []int, n int) []int {
-
-	newMatrix := make([]int, n*n)
-
-	for x := 0; x < n; x++ {
-		for y := 0; y < n; y++ {
-			xp := n - y - 1
-			yp := x
-			fmt.Fprintln(os.Stderr, "x: ", x)
-			fmt.Fprintln(os.Stderr, "y: ", y)
-			fmt.Fprintln(os.Stderr, "xp: ", xp)
-			fmt.Fprintln(os.Stderr, "yp: ", yp)
-			fmt.Fprintln(os.Stderr, "n: ", n)
-			fmt.Fprintln(os.Stderr, "x*n+y: ", x*n+y)
-			val := matrix[x*(n-1)+y]
-			fmt.Fprintln(os.Stderr, "val: ", val)
-			fmt.Fprintln(os.Stderr, newMatrix)
-			fmt.Fprintln(os.Stderr, "xp*n+yp", xp*n+yp)
-			newMatrix[xp*(n-1)+yp] = val
 		}
 	}
 
 	return newMatrix
 }
-*/
+
+func rotateMatrixInPlace(matrix []int, m int) {
+	// First we transpose the matrix, algorithm from:
+	// http://en.wikipedia.org/wiki/In-place_matrix_transposition#Square_matrices
+	for x := 0; x <= m-2; x++ {
+		for y := x + 1; y <= m-1; y++ {
+			origIndex := mIndex(x, y, m)
+			newIndex := mIndex(y, x, m)
+			matrix[origIndex], matrix[newIndex] = matrix[newIndex], matrix[origIndex]
+		}
+	}
+
+	// Next we fully rotate by swapping elements in the column. Only need
+	// to do half of the ys, because we are swapping top to bottom and vice
+	// versa
+	// FIXME
+	for x := 0; x < m; x++ {
+		for y := 0; y <= m/2; y++ {
+			origIndex := mIndex(x, y, m)
+			//newIndex := mIndex(x, m-y-1, m)
+			matrix[origIndex], matrix[newIndex] = matrix[newIndex], matrix[origIndex]
+		}
+	}
+	fmt.Println(matrix)
+}
 
 // from https://groups.google.com/group/golang-nuts/browse_thread/thread/571811b0ea0da610
 func funcName(f interface{}) string {
@@ -319,8 +294,14 @@ func TestCompress(t *testing.T) {
 }
 
 func TestMatrix(t *testing.T) {
-	matrix := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	origMatrix := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	m := 3
-	rotateMatrix(matrix, m)
-	fmt.Fprintln(os.Stderr, matrix)
+	newMatrix := rotateMatrix(origMatrix, m)
+
+	newMatrixStr := fmt.Sprintf("%v", newMatrix)
+	compareMatrixStr := fmt.Sprintf("%v", []int{3, 6, 9, 2, 5, 8, 1, 4, 7})
+	if newMatrixStr != compareMatrixStr {
+		t.Error("matrix rotate with copy failed")
+	}
+	rotateMatrixInPlace(origMatrix, m)
 }
