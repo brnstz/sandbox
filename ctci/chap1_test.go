@@ -180,6 +180,16 @@ func compressString(input string) string {
 	}
 }
 
+func printMatrix(matrix []int, m int) {
+	for i := range matrix {
+		fmt.Printf("%3d", matrix[i])
+		if (i+1)%m == 0 {
+			fmt.Println()
+		}
+	}
+	fmt.Println()
+}
+
 func mIndex(x, y, m int) int {
 	return m*x + y
 }
@@ -201,6 +211,8 @@ func rotateMatrix(origMatrix []int, m int) []int {
 func rotateMatrixInPlace(matrix []int, m int) {
 	// First we transpose the matrix, algorithm from:
 	// http://en.wikipedia.org/wiki/In-place_matrix_transposition#Square_matrices
+
+	printMatrix(matrix, m)
 	for x := 0; x <= m-2; x++ {
 		for y := x + 1; y <= m-1; y++ {
 			origIndex := mIndex(x, y, m)
@@ -208,19 +220,33 @@ func rotateMatrixInPlace(matrix []int, m int) {
 			matrix[origIndex], matrix[newIndex] = matrix[newIndex], matrix[origIndex]
 		}
 	}
+	printMatrix(matrix, m)
+
+	for x := 0; x < m; x++ {
+		for y := 0; y <= m/2; y++ {
+			origIndex := mIndex(x, y, m)
+			fmt.Println(x, y, matrix[origIndex])
+			newIndex := mIndex(x, m-y-1, m)
+			fmt.Println(x, m-y-1, matrix[newIndex])
+			fmt.Println()
+			matrix[origIndex], matrix[newIndex] = matrix[newIndex], matrix[origIndex]
+		}
+	}
+	//printMatrix(matrix, m)
 
 	// Next we fully rotate by swapping elements in the column. Only need
 	// to do half of the ys, because we are swapping top to bottom and vice
 	// versa
 	// FIXME
-	for x := 0; x < m; x++ {
-		for y := 0; y <= m/2; y++ {
-			origIndex := mIndex(x, y, m)
-			//newIndex := mIndex(x, m-y-1, m)
-			matrix[origIndex], matrix[newIndex] = matrix[newIndex], matrix[origIndex]
+	/*
+		for x := 0; x < m; x++ {
+			for y := 0; y <= m/2; y++ {
+				origIndex := mIndex(x, y, m)
+				newIndex := mIndex(x, m-y-1, m)
+				matrix[origIndex], matrix[newIndex] = matrix[newIndex], matrix[origIndex]
+			}
 		}
-	}
-	fmt.Println(matrix)
+	*/
 }
 
 // from https://groups.google.com/group/golang-nuts/browse_thread/thread/571811b0ea0da610
@@ -303,5 +329,6 @@ func TestMatrix(t *testing.T) {
 	if newMatrixStr != compareMatrixStr {
 		t.Error("matrix rotate with copy failed")
 	}
+
 	rotateMatrixInPlace(origMatrix, m)
 }
