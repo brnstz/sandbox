@@ -183,7 +183,7 @@ func compressString(input string) string {
 func printMatrix(matrix [][]int) {
 	for y := range matrix {
 		for x := range matrix[y] {
-			fmt.Printf("%3d", matrix[y][x])
+			fmt.Printf("%5d", matrix[y][x])
 		}
 		fmt.Println()
 	}
@@ -232,6 +232,33 @@ func rotateMatrixInPlace(matrix [][]int) {
 	}
 }
 
+// question 1.7
+func zeroRowCol(matrix [][]int) {
+	rowZs := map[int]bool{}
+	colZs := map[int]bool{}
+
+	// First create of map of all cols and rows that have a zero in them
+	for col := range matrix {
+		for row := range matrix[col] {
+			if matrix[col][row] == 0 {
+				rowZs[row] = true
+				colZs[col] = true
+			}
+		}
+	}
+
+	// Then go back through matrix and set all values in those rows
+	// and cols to 0
+	for col := range matrix {
+		for row := range matrix[col] {
+			if rowZs[row] || colZs[col] {
+				matrix[col][row] = 0
+			}
+		}
+	}
+
+}
+
 // from https://groups.google.com/group/golang-nuts/browse_thread/thread/571811b0ea0da610
 func funcName(f interface{}) string {
 	p := reflect.ValueOf(f).Pointer()
@@ -239,8 +266,13 @@ func funcName(f interface{}) string {
 	return rf.Name()
 }
 
+// hacky way to see if slices are equal
+func matrixEquals(a, b [][]int) bool {
+	return fmt.Sprintf("%v", a) == fmt.Sprintf("%v", b)
+}
+
 func dummy() {
-	fmt.Fprintln(os.Stderr, "let me keep fmt and sys in the packages")
+	fmt.Fprintln(os.Stderr, "let me keep fmt and os in the packages")
 }
 
 func TestIsUniq(t *testing.T) {
@@ -324,20 +356,44 @@ func TestMatrix(t *testing.T) {
 	// Try algo that makes a copy
 	rotatedCopyMatrix := rotateMatrix(matrix)
 
-	compareMatrixStr := fmt.Sprintf("%v", compareMatrix)
-	rotatedCopyMatrixStr := fmt.Sprintf("%v", rotatedCopyMatrix)
-
-	if rotatedCopyMatrixStr != compareMatrixStr {
+	if !matrixEquals(rotatedCopyMatrix, compareMatrix) {
 		t.Error("rotatedCopyMatrix does not match")
 	}
 
 	// Try algo that rotates in place
 	rotateMatrixInPlace(matrix)
 
-	rotatedInPlaceMatrixStr := fmt.Sprintf("%v", matrix)
+	if !matrixEquals(matrix, compareMatrix) {
+		t.Error("matrixMatrixInPlace() does not match")
+	}
+}
 
-	if rotatedInPlaceMatrixStr != compareMatrixStr {
-		t.Error("rotatedInPlaceMatrix does not match")
+func TestZeroMatris(t *testing.T) {
+	matrixArr := [][]int{
+		{2, 3, 3, 5, 3, 5, 0},
+		{5, 6, 62, 1, 76, 464, 1},
+		{0, 445, 666, 66, 66, 76, 4},
+		{22, 90, 32, 0, 8, 0, 123},
+		{32, 3, 5, 44, 2, 13, 99},
+		{1, 1, 1, 1, 1, 1, 8},
+	}
+
+	resultMatrixArr := [][]int{
+		{0, 0, 0, 0, 0, 0, 0},
+		{0, 6, 62, 0, 76, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 0},
+		{0, 3, 5, 0, 2, 0, 0},
+		{0, 1, 1, 0, 1, 0, 0},
+	}
+
+	matrix := matrixArr[:][:]
+	resultMatrix := resultMatrixArr[:][:]
+
+	zeroRowCol(matrix)
+
+	if !matrixEquals(matrix, resultMatrix) {
+		t.Error("zeroRowCol() did not succeed")
 	}
 
 }
