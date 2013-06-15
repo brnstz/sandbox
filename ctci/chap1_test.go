@@ -337,21 +337,18 @@ func TestCompress(t *testing.T) {
 func TestMatrix(t *testing.T) {
 
 	// indexed by y, x
-	matrixArr := [][]int{
+	matrix := [][]int{
 		{1, 2, 3},
 		{4, 5, 6},
 		{7, 8, 9},
 	}
 
 	// for comparing results
-	compareMatrixArr := [][]int{
+	compareMatrix := [][]int{
 		{7, 4, 1},
 		{8, 5, 2},
 		{9, 6, 3},
 	}
-
-	matrix := matrixArr[:][:]
-	compareMatrix := compareMatrixArr[:][:]
 
 	// Try algo that makes a copy
 	rotatedCopyMatrix := rotateMatrix(matrix)
@@ -369,7 +366,7 @@ func TestMatrix(t *testing.T) {
 }
 
 func TestZeroMatris(t *testing.T) {
-	matrixArr := [][]int{
+	matrix := [][]int{
 		{2, 3, 3, 5, 3, 5, 0},
 		{5, 6, 62, 1, 76, 464, 1},
 		{0, 445, 666, 66, 66, 76, 4},
@@ -378,7 +375,7 @@ func TestZeroMatris(t *testing.T) {
 		{1, 1, 1, 1, 1, 1, 8},
 	}
 
-	resultMatrixArr := [][]int{
+	resultMatrix := [][]int{
 		{0, 0, 0, 0, 0, 0, 0},
 		{0, 6, 62, 0, 76, 0, 0},
 		{0, 0, 0, 0, 0, 0, 0},
@@ -387,13 +384,9 @@ func TestZeroMatris(t *testing.T) {
 		{0, 1, 1, 0, 1, 0, 0},
 	}
 
-	matrix := matrixArr[:][:]
-	resultMatrix := resultMatrixArr[:][:]
-
 	zeroRowCol(matrix)
 
 	if !matrixEquals(matrix, resultMatrix) {
 		t.Error("zeroRowCol() did not succeed")
 	}
-
 }
