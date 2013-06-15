@@ -7,6 +7,7 @@ import (
 	"reflect"
 	"runtime"
 	"sort"
+	"strings"
 	"testing"
 )
 
@@ -256,7 +257,14 @@ func zeroRowCol(matrix [][]int) {
 			}
 		}
 	}
+}
 
+// question 1.8
+// I did not figure out the trick to this algorithm on my own (doubling
+// one of the strings)
+func isRotation(s1, s2 string) bool {
+	s1s1 := s1 + s1
+	return strings.Contains(s1s1, s2)
 }
 
 // from https://groups.google.com/group/golang-nuts/browse_thread/thread/571811b0ea0da610
@@ -388,5 +396,15 @@ func TestZeroMatris(t *testing.T) {
 
 	if !matrixEquals(matrix, resultMatrix) {
 		t.Error("zeroRowCol() did not succeed")
+	}
+}
+
+func TestIsRotation(t *testing.T) {
+	if !isRotation("hello this is where we are", "here we arehello this is w") {
+		t.Error("this should be a rotation")
+	}
+
+	if isRotation("nope", "yupyup nope") {
+		t.Error("this should not be a rotation")
 	}
 }
