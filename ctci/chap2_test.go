@@ -26,12 +26,15 @@ func (n *node) appendNode(inNode *node) {
 func (n *node) String() string {
 	str := ""
 
-	for n.next != nil {
-		str += fmt.Sprintf("%v", n.data)
+	for {
+		if n == nil {
+			break
+		}
+
+		str += fmt.Sprint(n.data)
+
 		n = n.next
 	}
-	// print last one
-	str += fmt.Sprintf("%v", n.data)
 
 	return str
 }
@@ -40,15 +43,26 @@ func (n *node) String() string {
 func removeDuplicates(n *node) {
 	dupes := map[interface{}]bool{}
 
-	// Note it's impossible for first node to be a dupe
-	// FIXME: not getting O, maybe recursive better?
 	var last *node
-	for n.next != nil {
-		if dupes[n.data] {
-			last.next = n.next
+
+	for {
+
+		// If no more nodes, we're done
+		if n == nil {
+			break
 		}
-		dupes[n.data] = true
-		last = n
+
+		if dupes[n.data] {
+			// Skip nodes that are dupes
+			last.next = n.next
+		} else {
+			// Otherwise record letter for potential dupes later and
+			// set last valid node
+			dupes[n.data] = true
+			last = n
+		}
+
+		// Always increment to next node
 		n = n.next
 	}
 }
@@ -67,6 +81,8 @@ func TestRemoveDuplicates(t *testing.T) {
 	data := "FOLLOW UP"
 	node := CreateNodesFromString(data, 0, len(data))
 	removeDuplicates(node)
-	fmt.Println(node.String())
 
+	if node.String() != "FOLW UP" {
+		t.Error("remove duplicates did not match FOLW UP")
+	}
 }
