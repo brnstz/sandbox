@@ -95,6 +95,16 @@ func findKthToLast(n *node, k int) interface{} {
 	return n.data
 }
 
+// question 2.3
+func deleteMiddle(n *node) {
+
+	// Assume n.next != nil, as it's supposed to be a "middle" node
+
+	n.data = n.next.data
+	n.next = n.next.next
+
+}
+
 func CreateNodesFromString(data string, i, max int) *node {
 	if i < max {
 		curN := NewNode(data[i : i+1])
@@ -128,5 +138,19 @@ func TestFindKthToLast(t *testing.T) {
 	if item != nil {
 		t.Error("-1th node from end should be nil")
 	}
+}
 
+func TestDeleteMiddle(t *testing.T) {
+	data := "NODES NODES NODES SO MANY NODES!!!"
+	parent := CreateNodesFromString(data, 0, len(data))
+	middle := parent
+
+	for i := 0; i < 25; i++ {
+		middle = middle.next
+	}
+	deleteMiddle(middle)
+
+	if parent.String() != "NODES NODES NODES SO MANYNODES!!!" {
+		t.Error("Deleting middle node didn't work")
+	}
 }
