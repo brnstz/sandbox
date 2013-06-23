@@ -31,7 +31,12 @@ func (n *node) String() string {
 			break
 		}
 
-		str += fmt.Sprint(n.data)
+		switch nDataTyped := n.data.(type) {
+		case int:
+			str += fmt.Sprintf("%v ", nDataTyped)
+		default:
+			str += fmt.Sprint(nDataTyped)
+		}
 
 		n = n.next
 	}
@@ -105,6 +110,87 @@ func deleteMiddle(n *node) {
 
 }
 
+func placeOnNode(prevN *node, newN *node) *node {
+	if prevN == nil {
+		return newN
+	}
+
+	prevN.next = newN
+	prevN = newN
+
+	return prevN
+}
+
+// question 2.4
+func partitionAtX(n *node, x int) *node {
+	var leftHeadN, rightHeadN, leftN, rightN *node
+
+	// Don't process if no nodes, makes post-loop processing simpler
+	if n == nil {
+		return nil
+	}
+
+	for {
+
+		if n == nil {
+			break
+		}
+
+		// assume int for this question
+		intVal := n.data.(int)
+
+		if intVal < x {
+			leftN = placeOnNode(leftN, n)
+
+			// Save first left node as head
+			if leftHeadN == nil {
+				leftHeadN = leftN
+			}
+
+		} else {
+			rightN = placeOnNode(rightN, n)
+
+			// Save first right node as head
+			if rightHeadN == nil {
+				rightHeadN = rightN
+			}
+		}
+
+		n = n.next
+	}
+
+	if leftHeadN == nil {
+		// if no left head, just return right side
+		return rightHeadN
+	} else {
+		// otherwise, set last left node next to righthead (possibly nil)
+		leftN.next = rightHeadN
+		return leftHeadN
+	}
+}
+
+func CreateNodesFromArr(arr []int) *node {
+	var headN *node
+	var lastN *node
+
+	for _, v := range arr {
+		newN := NewNode(v)
+
+		if headN == nil {
+			// set head if first
+			headN = newN
+		} else {
+			// otherwise set lastN's next value
+			lastN.next = newN
+		}
+
+		// set lastN for next iteration
+		lastN = newN
+	}
+
+	return headN
+}
+
 func CreateNodesFromString(data string, i, max int) *node {
 	if i < max {
 		curN := NewNode(data[i : i+1])
@@ -152,5 +238,29 @@ func TestDeleteMiddle(t *testing.T) {
 
 	if parent.String() != "NODES NODES NODES SO MANYNODES!!!" {
 		t.Error("Deleting middle node didn't work")
+	}
+}
+
+func TestPartition(t *testing.T) {
+	data := []int{234, 54, 546, 456, 756, 567, 9199, 1, 8, 4, 3, 2349}
+	headN := CreateNodesFromArr(data)
+	partN := partitionAtX(headN, 50)
+
+	if partN.String() != "1 8 4 3 234 54 546 456 756 567 9199 2349 " {
+		t.Error("Partition with left and right sides failed")
+	}
+
+	data = []int{234, 54, 546, 456, 756, 567, 9199, 1, 8, 4, 3, 2349}
+	headN = CreateNodesFromArr(data)
+	allLeftN := partitionAtX(headN, 99999)
+	if allLeftN.String() != "234 54 546 456 756 567 9199 1 8 4 3 2349 " {
+		t.Error("Partition with all left failed")
+	}
+
+	data = []int{234, 54, 546, 456, 756, 567, 9199, 1, 8, 4, 3, 2349}
+	headN = CreateNodesFromArr(data)
+	allRightN := partitionAtX(headN, 0)
+	if allRightN.String() != "234 54 546 456 756 567 9199 1 8 4 3 2349 " {
+		t.Error("Partition with all right failed")
 	}
 }
