@@ -169,6 +169,104 @@ func partitionAtX(n *node, x int) *node {
 	}
 }
 
+func curVal(n *node) int {
+	if n != nil {
+		switch nDataTyped := n.data.(type) {
+		case int:
+			return nDataTyped
+		default:
+			panic("Expected int")
+		}
+	}
+
+	return 0
+}
+
+// q 2.5
+func addTwoNodes(n1 *node, n2 *node, onesFirst bool) *node {
+	var resultHead *node
+	var curResult *node
+	var lastResult *node
+	carry := 0
+
+	for {
+
+		// Nothing else to process
+		if n1 == nil && n2 == nil {
+			break
+		}
+
+		curVal := curVal(n1) + curVal(n2) + carry
+
+		if curVal > 9 {
+			curResult = NewNode(curVal - 10)
+			carry = 1
+		} else {
+			curResult = NewNode(curVal)
+			carry = 0
+		}
+
+		if resultHead == nil {
+			// Save head if first iteration
+			resultHead = curResult
+		} else {
+			// Otherwise, link to last result
+			lastResult.next = curResult
+		}
+
+		if n1 != nil {
+			n1 = n1.next
+		}
+
+		if n2 != nil {
+			n2 = n2.next
+		}
+
+		lastResult = curResult
+	}
+
+	// If there is a final carry, add it
+	if carry > 0 {
+		curResult = NewNode(1)
+		lastResult.next = curResult
+	}
+
+	return resultHead
+}
+
+/*
+// need to pre-count nodes if doing it the other way where the 1's digit
+// is last
+func countNodes(n *node) int {
+	count := 0
+	for {
+		if n == nil {
+			break
+		}
+		count++
+		n = n.next
+	}
+}
+
+// q2.5 follow up
+func addTwoNodesOtherWay(n1 *node, n2 *node) *node {
+	n1Count = countNodes(n1)
+	n2Count = countNodes(n2)
+
+	// To simplify algo, let's make it so we can assume n1 has >= digits than
+	// n2
+	if n1Count < n2Count {
+		n1, n2 = n2, n1
+		n1Count, n2Count = n2Count, n1Count
+	}
+
+	for {
+
+	}
+
+}
+*/
+
 func CreateNodesFromArr(arr []int) *node {
 	var headN *node
 	var lastN *node
@@ -263,4 +361,16 @@ func TestPartition(t *testing.T) {
 	if allRightN.String() != "234 54 546 456 756 567 9199 1 8 4 3 2349 " {
 		t.Error("Partition with all right failed")
 	}
+}
+
+func TestAddTwoNodes(t *testing.T) {
+	data1 := []int{7, 1, 6}
+	data2 := []int{5, 9, 2}
+
+	headN1 := CreateNodesFromArr(data1)
+	headN2 := CreateNodesFromArr(data2)
+
+	resultHead := addTwoNodes(headN1, headN2, true)
+
+	fmt.Println(resultHead)
 }
