@@ -183,7 +183,7 @@ func curVal(n *node) int {
 }
 
 // q 2.5
-func addTwoNodes(n1 *node, n2 *node, onesFirst bool) *node {
+func addTwoNodes(n1 *node, n2 *node) *node {
 	var resultHead *node
 	var curResult *node
 	var lastResult *node
@@ -234,7 +234,6 @@ func addTwoNodes(n1 *node, n2 *node, onesFirst bool) *node {
 	return resultHead
 }
 
-/*
 // need to pre-count nodes if doing it the other way where the 1's digit
 // is last
 func countNodes(n *node) int {
@@ -246,12 +245,43 @@ func countNodes(n *node) int {
 		count++
 		n = n.next
 	}
+
+	return count
+}
+
+func addTwoNodesOtherWayRecurse(n1 *node, n2 *node, n1Diff int) (*node, int) {
+	var curResult, nextResult *node
+	var carry int
+
+	if n1 == nil {
+		return nil, 0
+	}
+
+	if n1Diff > 0 {
+		nextResult, carry = addTwoNodesOtherWayRecurse(n1.next, n2, n1Diff-1)
+	} else {
+		nextResult, carry = addTwoNodesOtherWayRecurse(n1.next, n2.next, 0)
+	}
+
+	curVal := curVal(n1) + curVal(n2) + carry
+
+	if curVal > 9 {
+		curResult = NewNode(curVal - 10)
+		carry = 1
+	} else {
+		curResult = NewNode(curVal)
+		carry = 0
+	}
+
+	curResult.next = nextResult
+
+	return curResult, carry
 }
 
 // q2.5 follow up
-func addTwoNodesOtherWay(n1 *node, n2 *node) *node {
-	n1Count = countNodes(n1)
-	n2Count = countNodes(n2)
+func addTwoNodesOtherWay(n1, n2 *node) *node {
+	n1Count := countNodes(n1)
+	n2Count := countNodes(n2)
 
 	// To simplify algo, let's make it so we can assume n1 has >= digits than
 	// n2
@@ -260,12 +290,16 @@ func addTwoNodesOtherWay(n1 *node, n2 *node) *node {
 		n1Count, n2Count = n2Count, n1Count
 	}
 
-	for {
+	resultHead, carry := addTwoNodesOtherWayRecurse(n1, n2, n1Count-n2Count)
 
+	if carry > 0 {
+		carryNode := NewNode(carry)
+		carryNode.next = resultHead
+		resultHead = carryNode
 	}
 
+	return resultHead
 }
-*/
 
 func CreateNodesFromArr(arr []int) *node {
 	var headN *node
@@ -370,7 +404,7 @@ func TestAddTwoNodes(t *testing.T) {
 	headN1 := CreateNodesFromArr(data1)
 	headN2 := CreateNodesFromArr(data2)
 
-	resultHead := addTwoNodes(headN1, headN2, true)
+	resultHead := addTwoNodesOtherWay(headN1, headN2)
 
 	fmt.Println(resultHead)
 }
