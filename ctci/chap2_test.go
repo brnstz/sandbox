@@ -93,7 +93,6 @@ func findKthToLast(n *node, k int) interface{} {
 	}
 
 	for j := 0; j < i-k-1; j++ {
-		fmt.Println("j: ", j)
 		n = n.next
 	}
 
@@ -196,13 +195,13 @@ func addTwoNodes(n1 *node, n2 *node) *node {
 			break
 		}
 
-		curVal := curVal(n1) + curVal(n2) + carry
+		nodeVal := curVal(n1) + curVal(n2) + carry
 
-		if curVal > 9 {
-			curResult = NewNode(curVal - 10)
+		if nodeVal > 9 {
+			curResult = NewNode(nodeVal - 10)
 			carry = 1
 		} else {
-			curResult = NewNode(curVal)
+			curResult = NewNode(nodeVal)
 			carry = 0
 		}
 
@@ -251,7 +250,7 @@ func countNodes(n *node) int {
 
 func addTwoNodesOtherWayRecurse(n1 *node, n2 *node, n1Diff int) (*node, int) {
 	var curResult, nextResult *node
-	var carry int
+	var nodeVal, carry int
 
 	if n1 == nil {
 		return nil, 0
@@ -259,17 +258,17 @@ func addTwoNodesOtherWayRecurse(n1 *node, n2 *node, n1Diff int) (*node, int) {
 
 	if n1Diff > 0 {
 		nextResult, carry = addTwoNodesOtherWayRecurse(n1.next, n2, n1Diff-1)
+		nodeVal = curVal(n1) + carry
 	} else {
 		nextResult, carry = addTwoNodesOtherWayRecurse(n1.next, n2.next, 0)
+		nodeVal = curVal(n1) + curVal(n2) + carry
 	}
 
-	curVal := curVal(n1) + curVal(n2) + carry
-
-	if curVal > 9 {
-		curResult = NewNode(curVal - 10)
+	if nodeVal > 9 {
+		curResult = NewNode(nodeVal - 10)
 		carry = 1
 	} else {
-		curResult = NewNode(curVal)
+		curResult = NewNode(nodeVal)
 		carry = 0
 	}
 
@@ -398,13 +397,20 @@ func TestPartition(t *testing.T) {
 }
 
 func TestAddTwoNodes(t *testing.T) {
-	data1 := []int{7, 1, 6}
-	data2 := []int{5, 9, 2}
+	data1 := []int{9, 0, 9, 9, 7, 1, 6}
+	data2 := []int{1, 5, 9, 2}
 
 	headN1 := CreateNodesFromArr(data1)
 	headN2 := CreateNodesFromArr(data2)
 
-	resultHead := addTwoNodesOtherWay(headN1, headN2)
+	resultHeadOne := addTwoNodes(headN1, headN2)
 
-	fmt.Println(resultHead)
+	if resultHeadOne.String() != "0 6 8 2 8 1 6 " {
+		t.Error("Adding two nodes original way broken.")
+	}
+
+	resultHeadTwo := addTwoNodesOtherWay(headN1, headN2)
+	if resultHeadTwo.String() != "9 1 0 1 3 0 8 " {
+		t.Error("Adding two nodes other way broken.")
+	}
 }
