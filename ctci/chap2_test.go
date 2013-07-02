@@ -300,6 +300,28 @@ func addTwoNodesOtherWay(n1, n2 *node) *node {
 	return resultHead
 }
 
+// q 2.6
+func isCircular(n *node) *node {
+	nodes := map[*node]bool{}
+
+	for {
+		// Reach end of list, not a circle
+		if n == nil {
+			return nil
+		}
+
+		// It's a circle, found the same pointer
+		if nodes[n] != false {
+			return n
+		}
+
+		nodes[n] = true
+
+		n = n.next
+	}
+
+}
+
 func CreateNodesFromArr(arr []int) *node {
 	var headN *node
 	var lastN *node
@@ -412,5 +434,21 @@ func TestAddTwoNodes(t *testing.T) {
 	resultHeadTwo := addTwoNodesOtherWay(headN1, headN2)
 	if resultHeadTwo.String() != "9 1 0 1 3 0 8 " {
 		t.Error("Adding two nodes other way broken.")
+	}
+}
+
+func TestCircle(t *testing.T) {
+	headN := CreateNodesFromArr([]int{6, 7, 8, 9, 10})
+	circleN := CreateNodesFromArr([]int{99, 91, 92, 93, 94, 95})
+
+	// Make circleN a circle
+	circleN.next.next.next.next = circleN.next
+
+	if isCircular(headN) != nil {
+		t.Error("This should not be a circle.")
+	}
+
+	if isCircular(circleN) == nil {
+		t.Error("This should be a circle.")
 	}
 }
