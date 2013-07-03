@@ -322,6 +322,54 @@ func isCircular(n *node) *node {
 
 }
 
+// q 2.7
+func isPalindrome(n *node) bool {
+	var length, headEnd int
+
+	// save orig
+	origN := n
+
+	for {
+		if n == nil {
+			break
+		}
+
+		length++
+
+		n = n.next
+	}
+
+	n = origN
+
+	headEnd = length / 2
+
+	headVals := make([]int, headEnd)
+
+	for i := 0; i < headEnd; i++ {
+		headVals[i] = curVal(n)
+		n = n.next
+	}
+
+	// skip middle value if it exists
+	if length%2 != 0 {
+		n = n.next
+	}
+
+	j := 0
+	for {
+		if j >= headEnd {
+			break
+		}
+		if headVals[headEnd-j-1] != curVal(n) {
+			return false
+		}
+		n = n.next
+		j++
+	}
+
+	return true
+}
+
 func CreateNodesFromArr(arr []int) *node {
 	var headN *node
 	var lastN *node
@@ -451,4 +499,22 @@ func TestCircle(t *testing.T) {
 	if isCircular(circleN) == nil {
 		t.Error("This should be a circle.")
 	}
+}
+
+func TestPalindrome(t *testing.T) {
+	headN := CreateNodesFromArr([]int{1, 2, 3, 4, 3, 2, 1})
+	if !isPalindrome(headN) {
+		t.Error("This should be a palindrome.")
+	}
+
+	headN2 := CreateNodesFromArr([]int{1, 2, 3, 3, 2, 1})
+	if !isPalindrome(headN2) {
+		t.Error("This should also be a palindrome.")
+	}
+
+	headN3 := CreateNodesFromArr([]int{1, 0, 3, 3, 2, 1})
+	if isPalindrome(headN3) {
+		t.Error("This should NOT be a palindrome.")
+	}
+
 }
