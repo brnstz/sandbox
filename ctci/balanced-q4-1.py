@@ -1,12 +1,11 @@
 #!/usr/bin/python
 
 class node:
-    left = None
-    right = None
-    value = None
 
     def __init__(self, value):
         self.value = value
+        self.left = None
+        self.right = None
 
     def insert(self, node):
         if node.value > self.value and self.right != None:
@@ -37,8 +36,8 @@ def check_balanced(node):
 root = node(100)
 root.insert(node(500))
 root.insert(node(50))
-root.insert(node(25))
-root.insert(node(5000))
+root.insert(node(10))
+root.insert(node(1))
 
 count, balanced = check_balanced(root)
 print balanced
