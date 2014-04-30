@@ -31,17 +31,23 @@ func main() {
 	http.HandleFunc("themeasurements.com/", measurementsRedir)
 	http.HandleFunc("www.themeasurements.com/", measurementsRedir)
 
-	highlit_url, err := url.Parse("http://localhost:8080")
+	highlitUrl, err := url.Parse("http://localhost:8080")
 	if err != nil {
 		panic(err)
 	}
-	http.Handle("highlit.brnstz.com/", httputil.NewSingleHostReverseProxy(highlit_url))
+	http.Handle("highlit.brnstz.com/", httputil.NewSingleHostReverseProxy(highlitUrl))
 
-	inbox_url, err := url.Parse("http://localhost:8081")
+	inboxUrl, err := url.Parse("http://localhost:8081")
 	if err != nil {
 		panic(err)
 	}
-	http.Handle("inbox.brnstz.com/", httputil.NewSingleHostReverseProxy(inbox_url))
+	http.Handle("inbox.brnstz.com/", httputil.NewSingleHostReverseProxy(inboxUrl))
+
+	clusterUrl, err := url.Parse("http://localhost:8082")
+	if err != nil {
+		panic(err)
+	}
+	http.Handle("cluster.brnstz.com/", httputil.NewSingleHostReverseProxy(clusterUrl))
 
 	err = http.ListenAndServe(":80", nil)
 
