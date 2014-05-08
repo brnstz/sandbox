@@ -21,7 +21,7 @@ const (
 	timeout          = time.Duration(30 * time.Minute)
 	lastFile         = `/tmp/jimmy`
 	port             = 587
-	msg              = `From: brnstz@gmail
+	msg              = `From: brnstz@gmail.com
 To: brnstz@gmail.com
 Subject: Jimmy Fallon tickets
 
