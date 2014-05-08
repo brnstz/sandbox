@@ -4,7 +4,19 @@ import (
 	"net/http"
 	"net/http/httputil"
 	"net/url"
+
+	"strings"
 )
+
+func measurementsRedir(w http.ResponseWriter, r *http.Request) {
+	lowerPath := strings.ToLower(r.URL.Path)
+
+	if strings.HasPrefix(lowerPath, "/nodana") {
+		http.Redirect(w, r, "https://www.youtube.com/watch?v=CcRk-zdn8Ps", http.StatusFound)
+	} else {
+		http.Redirect(w, r, "http://themeasurements.bandcamp.com/", http.StatusFound)
+	}
+}
 
 func main() {
 
@@ -12,28 +24,30 @@ func main() {
 	http.Handle("wholok.com/", http.FileServer(http.Dir("/home/bseitz/www/wholok.com")))
 	http.Handle("www.brnstz.com/", http.FileServer(http.Dir("/home/bseitz/www/brnstz.com")))
 	http.Handle("brnstz.com/", http.FileServer(http.Dir("/home/bseitz/www/brnstz.com")))
+
 	http.Handle("themeasurements.com/logo/", http.StripPrefix("/logo/", http.FileServer(http.Dir("/home/bseitz/www/themeasurements.com/logo/"))))
 	http.Handle("www.themeasurements.com/logo/", http.StripPrefix("/logo/", http.FileServer(http.Dir("/home/bseitz/www/themeasurements.com/logo/"))))
-	http.HandleFunc("themeasurements.com/",
-		func(w http.ResponseWriter, r *http.Request) {
-			http.Redirect(w, r, "http://themeasurements.bandcamp.com/", http.StatusFound)
-		})
-	http.HandleFunc("www.themeasurements.com/",
-		func(w http.ResponseWriter, r *http.Request) {
-			http.Redirect(w, r, "http://themeasurements.bandcamp.com/", http.StatusFound)
-		})
 
-	highlit_url, err := url.Parse("http://localhost:8080")
+	http.HandleFunc("themeasurements.com/", measurementsRedir)
+	http.HandleFunc("www.themeasurements.com/", measurementsRedir)
+
+	highlitUrl, err := url.Parse("http://localhost:8080")
 	if err != nil {
 		panic(err)
 	}
-	http.Handle("highlit.brnstz.com/", httputil.NewSingleHostReverseProxy(highlit_url))
+	http.Handle("highlit.brnstz.com/", httputil.NewSingleHostReverseProxy(highlitUrl))
 
-	inbox_url, err := url.Parse("http://localhost:8081")
+	inboxUrl, err := url.Parse("http://localhost:8081")
 	if err != nil {
 		panic(err)
 	}
-	http.Handle("inbox.brnstz.com/", httputil.NewSingleHostReverseProxy(inbox_url))
+	http.Handle("inbox.brnstz.com/", httputil.NewSingleHostReverseProxy(inboxUrl))
+
+	clusterUrl, err := url.Parse("http://localhost:8082")
+	if err != nil {
+		panic(err)
+	}
+	http.Handle("cluster.brnstz.com/", httputil.NewSingleHostReverseProxy(clusterUrl))
 
 	err = http.ListenAndServe(":80", nil)
 
