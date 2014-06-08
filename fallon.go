@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"net/smtp"
 	"os"
+	"os/exec"
 	"strings"
 	"time"
 )
@@ -96,18 +97,17 @@ func readOld() (string, bool) {
 	return string(oldBytes), true
 }
 
-func bodyDiff(body string) bool {
+func bodyDiff(body string) (string, error) {
 	old, good := readOld()
+
+	if !good {
+		return "", fmt.Errorf("Can't read old file")
+	}
 
 	// Write new content to file
 	ioutil.WriteFile(lastFile, []byte(body), 0666)
 
-	// Couldn't figure it out, or body is same as old
-	if !good || old == body {
-		return false
-	}
-
-	return true
+	return diff(old, body)
 }
 
 func runOne() {
@@ -122,10 +122,48 @@ func runOne() {
 	bytes, err := ioutil.ReadAll(resp.Body)
 	body := removeComments(string(bytes))
 
-	if bodyDiff(body) {
-		mailStuff(fmt.Sprintf("Tickets may be available! %v", jimmyUrl))
+	d, err := bodyDiff(body)
+
+	// err non-nil indicates there is a diff
+	if err != nil {
+		mailStuff(fmt.Sprintf("Tickets may be available!\r\n%+v\r\n%v\r\n%v", err, d, jimmyUrl))
 	} else {
 		log.Println("Tickets not available")
+	}
+}
+
+// Stolen/modified from https://github.com/bradfitz/camlistore/blob/master/pkg/test/diff.go
+// If there is a difference between and a and b, return the diff and an
+// error value. Otherwise, return blank string and nil error.
+// We send -b option which ignores changes in the amount of whitespace.
+func diff(a, b string) (string, error) {
+	if a == b {
+		return "", nil
+	}
+	ta, err := ioutil.TempFile("", "")
+	if err != nil {
+		return "", err
+	}
+	tb, err := ioutil.TempFile("", "")
+	if err != nil {
+		return "", err
+	}
+	defer os.Remove(ta.Name())
+	defer os.Remove(tb.Name())
+	ta.WriteString(a)
+	tb.WriteString(b)
+	ta.Close()
+	tb.Close()
+	out, err := exec.Command("diff", "-bu", ta.Name(), tb.Name()).CombinedOutput()
+	if len(out) > 0 && err == nil {
+		// There is a diff
+		return string(out), fmt.Errorf("There is a diff")
+	} else if err != nil {
+		// There is an error
+		return string(out), err
+	} else {
+		// No diff and no error
+		return "", nil
 	}
 }
 
