@@ -8,13 +8,16 @@ import (
 	"log"
 	"net/http"
 	"net/smtp"
+	"net/url"
 	"os"
 	"os/exec"
+	"strconv"
 	"strings"
 	"time"
 )
 
 const (
+	twilio           = `https://api.twilio.com/2010-04-01/Accounts/%s/Calls`
 	startHTMLComment = `<!--`
 	stopHTMLComment  = `-->`
 	jimmyUrl         = `http://www.showclix.com/event/thetonightshowstarringjimmyfallon`
@@ -31,9 +34,13 @@ Subject: Jimmy Fallon tickets
 )
 
 var (
-	user       string
-	pw         string
-	mailserver string
+	user,
+	pw,
+	mailserver,
+	twilioSid,
+	twilioAuth,
+	twilioFrom,
+	twilioTo string
 )
 
 func removeComments(body string) string {
@@ -127,9 +134,48 @@ func runOne() {
 	// err non-nil indicates there is a diff
 	if err != nil {
 		mailStuff(fmt.Sprintf("Tickets may be available!\r\n%+v\r\n%v\r\n%v", err, d, jimmyUrl))
+		callTwilio()
 	} else {
 		log.Println("Tickets not available")
 	}
+}
+
+func callTwilio() error {
+	vals := url.Values{}
+	// FIXME: make real URL for Twilio to hit?
+	vals.Set("Url", "http://www.brnstz.com/")
+	vals.Set("To", twilioTo)
+	vals.Set("From", twilioFrom)
+	valStr := vals.Encode()
+
+	req, err := http.NewRequest("POST", fmt.Sprintf(twilio, twilioSid),
+		strings.NewReader(valStr))
+	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Add("Content-Length", strconv.Itoa(len(valStr)))
+
+	if err != nil {
+		log.Printf("Couldn't create Twilio req: %v", err)
+		return err
+	}
+
+	req.SetBasicAuth(twilioSid, twilioAuth)
+	resp, err := http.DefaultClient.Do(req)
+
+	if err != nil {
+		log.Printf("Couldn't run Twilio req: %v", err)
+		return err
+	}
+
+	all, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Printf("Couldn't read Twilio resp: %v", err)
+		return err
+	}
+	log.Printf("Twilio response:\n%s\n", all)
+
+	resp.Body.Close()
+
+	return nil
 }
 
 // Stolen/modified from https://github.com/bradfitz/camlistore/blob/master/pkg/test/diff.go
@@ -171,6 +217,10 @@ func main() {
 	user = os.Getenv("JF_USER")
 	pw = os.Getenv("JF_PW")
 	mailserver = os.Getenv("JF_SMTP")
+	twilioSid = os.Getenv("TWILIO_SID")
+	twilioAuth = os.Getenv("TWILIO_AUTH")
+	twilioFrom = os.Getenv("TWILIO_FROM")
+	twilioTo = os.Getenv("TWILIO_TO")
 
 	for {
 		runOne()
