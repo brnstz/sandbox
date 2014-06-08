@@ -22,7 +22,7 @@ const (
 	stopHTMLComment  = `-->`
 	jimmyUrl         = `http://www.showclix.com/event/thetonightshowstarringjimmyfallon`
 	notifyEmail      = `brnstz@gmail.com`
-	timeout          = time.Duration(30 * time.Minute)
+	timeout          = time.Duration(5 * time.Minute)
 	lastFile         = `/tmp/jimmy`
 	port             = 587
 	msg              = `From: brnstz@gmail.com
