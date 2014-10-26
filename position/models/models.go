@@ -8,8 +8,6 @@ import (
 /*
 tables
 
-historical_2014_
-
 current
 
 operations
@@ -25,8 +23,8 @@ operations
 const createTickerTable = `
     CREATE TABLE IF NOT EXISTS
         ticker
-        (ticker_id INT UNSIGNED NOT NULL,
-         name VARCHAR(100) NOT NULL
+        (ticker_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+         symbol VARCHAR(4) NOT NULL
         )
 `
 
@@ -36,6 +34,11 @@ const createPriceTable = `
         (ticker_id INT UNSIGNED NOT NULL,
          price INT UNSIGNED NOT NULL,
          created_date DATETIME
+        )
+        UNIQUE KEY ticker_date (ticker_id, created_date)
+        PARTITIONED BY RANGE COLUMNS(created_date) (
+            PARTITION p201001 VALUES LESS THAN ('2010-01-01'),
+            PARTITION pMax VALUES LESS THAN MAXVALUE
         )
 `
 
@@ -55,7 +58,7 @@ const createArchivedPositionTable = `
 const createCurrentPositionTable = ` 
     CREATE TABLE IF NOT EXISTS 
         position
-        (user_id INT UNSIGNED NOT NULL,
+        (user_id INT UNSIGNED NOT NULL PRIMARY KEY,
          ticker_id INT UNSIGNED NOT NULL,
          shares BIGINT UNSIGNED NOT NULL,
          created_date DATETIME NOT NULL
@@ -66,6 +69,8 @@ var allTables = []string{
 	createTickerTable, createPriceTable,
 	createArchivedPositionTable, currentPositionTable,
 }
+
+var startDate = time.Date(2010, time.January, 1, 0, 0, 0, 0, time.Local)
 
 type Position struct {
 	UserId   int
@@ -83,6 +88,10 @@ type Price struct {
 	TickerId int
 	Price    int
 	Date     *time.Time
+}
+
+type Ticker struct {
+	TickerId
 }
 
 func EnsureTables(db *sql.DB) error {
