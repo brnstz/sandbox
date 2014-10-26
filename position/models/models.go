@@ -2,6 +2,7 @@ package models
 
 import (
 	"database/sql"
+	"strings"
 	"time"
 )
 
@@ -20,15 +21,24 @@ operations
 
 */
 
-const createTickerTable = `
+const (
+	tickerSymbols = `SPY VXX EWZ EEM QQQ IWM XLF TVIX XLE XIV TZA EWJ GDX UVXY EFA FXI XOP XLU VWO XLV SDS OIH XLP RSX XLI XLK TNA GDXJ XLB DGAZ IYR UGAZ IVV EWT HYG DIA TLT USO EWG JNUG SSO SPXU SQQQ NUGT JNK XLY XHB QID USMV UNG VGK SH ERY VEA AMLP IAU FAZ DXJ GLD TQQQ ITB EWY VNQ SLV EPI VTI EWP XRT SPXS DUST EDC SMH SVXY IWD BND BSV EZU AAXJ TWM QLD IEMG EWH JDST TBT BKLN IWF EWU LQD DXD VIXY RWM EWA MDY SPXL DBC REM FAS KRE IBB SCO`
+
+	createTickerTable = `
     CREATE TABLE IF NOT EXISTS
         ticker
         (ticker_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-         symbol VARCHAR(4) NOT NULL
+         symbol VARCHAR(4) NOT NULL,
+         UNIQUE KEY symbol_key (symbol)
         )
-`
+    `
 
-const createPriceTable = `
+	insertTicker = `
+    INSERT INTO ticker (symbol) VALUES(?)
+    ON DUPLICATE KEY UPDATE ticker_id = ticker_id
+    `
+
+	createPriceTable = `
     CREATE TABLE IF NOT EXISTS 
         price
         (ticker_id INT UNSIGNED NOT NULL,
@@ -40,10 +50,10 @@ const createPriceTable = `
             PARTITION p201001 VALUES LESS THAN ('2010-01-01'),
             PARTITION pMax VALUES LESS THAN MAXVALUE
         )
-`
+    `
 
-// partitioned by date, indexed by user id?
-const createArchivedPositionTable = `
+	// partitioned by date, indexed by user id?
+	createArchivedPositionTable = `
     CREATE TABLE IF NOT EXISTS 
         archived_position
         (user_id INT UNSIGNED NOT NULL,
@@ -52,10 +62,10 @@ const createArchivedPositionTable = `
          created_date DATETIME NOT NULL,
          price INT UNSIGNED 
         )
-`
+    `
 
-// partitioned and indexed by user id
-const createCurrentPositionTable = ` 
+	// partitioned and indexed by user id
+	createCurrentPositionTable = ` 
     CREATE TABLE IF NOT EXISTS 
         position
         (user_id INT UNSIGNED NOT NULL PRIMARY KEY,
@@ -63,7 +73,8 @@ const createCurrentPositionTable = `
          shares BIGINT UNSIGNED NOT NULL,
          created_date DATETIME NOT NULL
         )
-`
+    `
+)
 
 var allTables = []string{
 	createTickerTable, createPriceTable,
@@ -97,6 +108,15 @@ type Ticker struct {
 func EnsureTables(db *sql.DB) error {
 	for _, table := range allTables {
 		_, err := db.Exec(table)
+		if err != nil {
+			return err
+		}
+	}
+}
+
+func LoadTickers(db *sql.DB) error {
+	for _, ticker := range strings.Fields(tickerSymbols) {
+		_, err = db.Exec(insertTicker, ticker)
 		if err != nil {
 			return err
 		}
