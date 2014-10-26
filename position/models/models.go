@@ -2,6 +2,9 @@ package models
 
 import (
 	"database/sql"
+	"fmt"
+	"log"
+	"math/rand"
 	"strings"
 	"time"
 )
@@ -27,13 +30,13 @@ const (
 	// starting price of all tickers in mils
 	startPrice = 10000
 
-	// minimum percent change of stocks
-	priceChangePercMin = 0
-	priceChangePercMax = 30
+	//
+	priceMin = 1000
+	priceMax = 20000
 
 	// minimum time between new stock prices
-	priceChangeSecMin = 60
-	priceChangeSecMax = 300
+	priceChangeSecMin = 3000
+	priceChangeSecMax = 60000
 
 	createTickerTable = `
     CREATE TABLE IF NOT EXISTS
@@ -49,10 +52,17 @@ const (
     ON DUPLICATE KEY UPDATE ticker_id = ticker_id
     `
 
-	insertPrice = `
-    INSERT INTO price (ticker_id, price, created_date)
+	getTickers = `SELECT ticker_id FROM ticker`
 
+	insertPrice = `
+    INSERT INTO price (ticker_id, price, created_date) 
+		SELECT t.ticker_id, ?, ? FROM ticker t
+			WHERE t.symbol = ?
+	ON DUPLICATE KEY UPDATE price.ticker_id = price.ticker_id
     `
+
+	//  alter table price add partition if not exists (partition p201002 values less than ('2010-02-01'));
+	addPartition = "ALTER TABLE `%s` ADD PARTITION IF NOT EXISTS (PARTITION `%s` VALUES LESS THAN ('%s'))"
 
 	createPriceTable = `
     CREATE TABLE IF NOT EXISTS 
@@ -63,8 +73,7 @@ const (
          UNIQUE KEY ticker_date (ticker_id, created_date)
         )
         PARTITION BY RANGE COLUMNS(created_date) (
-            PARTITION p201001 VALUES LESS THAN ('2010-01-01'),
-            PARTITION pMax VALUES LESS THAN MAXVALUE
+            PARTITION p201002 VALUES LESS THAN ('2010-02-01')
         )
     `
 
@@ -97,7 +106,7 @@ var allTables = []string{
 	createArchivedPositionTable, createCurrentPositionTable,
 }
 
-var startDate = time.Date(2010, time.January, 1, 0, 0, 0, 0, time.Local)
+var startDate = time.Date(2010, time.January, 1, 0, 0, 0, 0, time.UTC)
 
 type Position struct {
 	UserId   int
@@ -126,6 +135,8 @@ func EnsureTables(db *sql.DB) error {
 	for _, table := range allTables {
 		_, err := db.Exec(table)
 		if err != nil {
+			log.Println(table)
+			log.Println(err)
 			return err
 		}
 	}
@@ -136,19 +147,14 @@ func EnsureTables(db *sql.DB) error {
 // Load ticker table and set initial price
 func LoadTickers(db *sql.DB) error {
 	for _, ticker := range strings.Fields(tickerSymbols) {
-
-		res, err := db.Exec(insertTicker, ticker)
+		_, err := db.Exec(insertTicker, ticker)
 		if err != nil {
+			log.Println(err)
 			return err
 		}
-
-		id, err := res.LastInsertId()
+		_, err = db.Exec(insertPrice, startPrice, startDate, ticker)
 		if err != nil {
-			return err
-		}
-
-		_, err = db.Exec(insertPrice, id, startPrice, startDate)
-		if err != nil {
+			log.Println(err)
 			return err
 		}
 	}
@@ -156,7 +162,53 @@ func LoadTickers(db *sql.DB) error {
 	return nil
 }
 
-// Set
+func nextDate(date time.Time) time.Time {
+	v := rand.Int31n(priceChangeSecMax-priceChangeSecMin) + priceChangeSecMin
+	return date.Add(time.Duration(v) * time.Second)
+}
+
+// Return a time in the future that is the beginning of the next month.
+func partitionDate(date time.Time) time.Time {
+	var newDate time.Time
+	if date.Month() == time.December {
+		newDate = time.Date(date.Year()+1, time.January, 1, 0, 0, 0, 0, time.UTC)
+	} else {
+		newDate = time.Date(date.Year(), date.Month()+1, 1, 0, 0, 0, 0, time.UTC)
+	}
+
+	return newDate
+}
+
+// Load random prices from date range
 func LoadPrices(db *sql.DB) error {
+	date := startDate
+	for i := 0; i < 100; i++ {
+		date = nextDate(date)
+		pDate := partitionDate(date)
+
+		partitionCommand := fmt.Sprintf(addPartition, "price",
+			pDate.Format("p200601"), pDate.Format("2006-01-02"),
+		)
+
+		_, err := db.Exec(partitionCommand)
+		if err != nil {
+			log.Println(partitionCommand)
+			log.Println(date)
+			log.Println(pDate)
+			log.Println(err)
+			return err
+		}
+
+		for _, ticker := range strings.Fields(tickerSymbols) {
+			newPrice := rand.Int31n(priceMax-priceMin) + priceMin
+			_, err := db.Exec(insertPrice, newPrice, date, ticker)
+			if err != nil {
+				log.Println(err)
+				return err
+			}
+
+		}
+	}
+
 	return nil
 }

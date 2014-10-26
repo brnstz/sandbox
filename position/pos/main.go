@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"log"
 
 	_ "github.com/go-sql-driver/mysql"
 
@@ -9,6 +10,7 @@ import (
 )
 
 func main() {
+	log.SetFlags(log.Llongfile)
 	db, err := sql.Open("mysql", "bseitz:bseitz@/brnstz")
 	if err != nil {
 		panic(err)
@@ -20,6 +22,11 @@ func main() {
 	}
 
 	err = models.LoadTickers(db)
+	if err != nil {
+		panic(err)
+	}
+
+	err = models.LoadPrices(db)
 	if err != nil {
 		panic(err)
 	}
