@@ -64,7 +64,7 @@ const createCurrentPositionTable = `
 
 var allTables = []string{
 	createTickerTable, createPriceTable,
-	createArchivedPositionTable, currentPositionTable,
+	createArchivedPositionTable, createCurrentPositionTable,
 }
 
 type Position struct {
@@ -92,4 +92,6 @@ func EnsureTables(db *sql.DB) error {
 			return err
 		}
 	}
+
+	return nil
 }
