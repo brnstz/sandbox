@@ -18,4 +18,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	err = models.LoadTickers(db)
+	if err != nil {
+		panic(err)
+	}
 }
