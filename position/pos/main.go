@@ -5,7 +5,7 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 
-	"github.com/brnstz/position/models"
+	"github.com/brnstz/sandbox/position/models"
 )
 
 func main() {
