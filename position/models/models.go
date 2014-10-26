@@ -24,6 +24,17 @@ operations
 const (
 	tickerSymbols = `SPY VXX EWZ EEM QQQ IWM XLF TVIX XLE XIV TZA EWJ GDX UVXY EFA FXI XOP XLU VWO XLV SDS OIH XLP RSX XLI XLK TNA GDXJ XLB DGAZ IYR UGAZ IVV EWT HYG DIA TLT USO EWG JNUG SSO SPXU SQQQ NUGT JNK XLY XHB QID USMV UNG VGK SH ERY VEA AMLP IAU FAZ DXJ GLD TQQQ ITB EWY VNQ SLV EPI VTI EWP XRT SPXS DUST EDC SMH SVXY IWD BND BSV EZU AAXJ TWM QLD IEMG EWH JDST TBT BKLN IWF EWU LQD DXD VIXY RWM EWA MDY SPXL DBC REM FAS KRE IBB SCO`
 
+	// starting price of all tickers in mils
+	startPrice = 10000
+
+	// minimum percent change of stocks
+	priceChangePercMin = 0
+	priceChangePercMax = 30
+
+	// minimum time between new stock prices
+	priceChangeSecMin = 60
+	priceChangeSecMax = 300
+
 	createTickerTable = `
     CREATE TABLE IF NOT EXISTS
         ticker
@@ -36,6 +47,11 @@ const (
 	insertTicker = `
     INSERT INTO ticker (symbol) VALUES(?)
     ON DUPLICATE KEY UPDATE ticker_id = ticker_id
+    `
+
+	insertPrice = `
+    INSERT INTO price (ticker_id, price, created_date)
+
     `
 
 	createPriceTable = `
@@ -117,13 +133,30 @@ func EnsureTables(db *sql.DB) error {
 	return nil
 }
 
+// Load ticker table and set initial price
 func LoadTickers(db *sql.DB) error {
 	for _, ticker := range strings.Fields(tickerSymbols) {
-		_, err := db.Exec(insertTicker, ticker)
+
+		res, err := db.Exec(insertTicker, ticker)
 		if err != nil {
 			return err
+		}
+
+		id, err := res.LastInsertId()
+		if err != nil {
+			return err
+		}
+
+		_, err = db.Exec(insertPrice, id, startPrice, startDate)
+		if err != nil {
+			return er
 		}
 	}
 
 	return nil
+}
+
+// Set
+func LoadPrices(db *sql.DB) error {
+
 }
