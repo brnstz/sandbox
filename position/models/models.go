@@ -119,9 +119,11 @@ func EnsureTables(db *sql.DB) error {
 
 func LoadTickers(db *sql.DB) error {
 	for _, ticker := range strings.Fields(tickerSymbols) {
-		_, err = db.Exec(insertTicker, ticker)
+		_, err := db.Exec(insertTicker, ticker)
 		if err != nil {
 			return err
 		}
 	}
+
+	return nil
 }
