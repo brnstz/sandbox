@@ -91,7 +91,8 @@ type Price struct {
 }
 
 type Ticker struct {
-	TickerId
+	TickerId int
+	Symbol   string
 }
 
 func EnsureTables(db *sql.DB) error {
