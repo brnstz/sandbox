@@ -33,10 +33,10 @@ const createPriceTable = `
         price
         (ticker_id INT UNSIGNED NOT NULL,
          price INT UNSIGNED NOT NULL,
-         created_date DATETIME
+         created_date DATETIME,
+         UNIQUE KEY ticker_date (ticker_id, created_date)
         )
-        UNIQUE KEY ticker_date (ticker_id, created_date)
-        PARTITIONED BY RANGE COLUMNS(created_date) (
+        PARTITION BY RANGE COLUMNS(created_date) (
             PARTITION p201001 VALUES LESS THAN ('2010-01-01'),
             PARTITION pMax VALUES LESS THAN MAXVALUE
         )
