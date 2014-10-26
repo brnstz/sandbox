@@ -149,7 +149,7 @@ func LoadTickers(db *sql.DB) error {
 
 		_, err = db.Exec(insertPrice, id, startPrice, startDate)
 		if err != nil {
-			return er
+			return err
 		}
 	}
 
@@ -158,5 +158,5 @@ func LoadTickers(db *sql.DB) error {
 
 // Set
 func LoadPrices(db *sql.DB) error {
-
+	return nil
 }
