@@ -10,7 +10,8 @@ import (
 	"os"
 )
 
-const homepageHTML = `
+const (
+	homepageHTML = `
 <html>
     <head>
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -47,7 +48,10 @@ const homepageHTML = `
 </html>
 `
 
-const apiFmt = `https://api.enigma.io/v2/data/%s/enigma.licenses.liquor.us?search[]=@establishment_address_zip+("11222")&conjunction=and`
+	apiFmt = `https://api.enigma.io/v2/data/%s/enigma.licenses.liquor.us?search[]=@establishment_address_zip+("11222")&conjunction=and`
+
+	api = "http://nominatim.openstreetmap.org/search?format=json&street=292+eckford+street&city=brooklyn&state=ny&county=kings&countrycodes=us"
+)
 
 type initValues struct {
 	Lat         float32
