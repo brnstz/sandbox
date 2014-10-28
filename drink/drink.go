@@ -7,7 +7,9 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
+	"strconv"
 )
 
 const (
@@ -27,18 +29,19 @@ const (
         </body>
 
         <script>
-            var blah;
+            var map;
             $(document).ready(function() {
                 $.getJSON("svc/init", function(data) {
-                    var map = L.map('map').setView(
-                        [data.Lat, data.Long], data.DefaultZoom
+                    map = L.map('map').setView(
+                        [data.Lat, data.Lon], data.DefaultZoom
                     );
                     L.tileLayer(data.UrlTemplate, data.Options).addTo(map);
                 });
 
                 $.getJSON("svc/drinks", function(data) {
-                    for (i = 0; i < data.results; i++) {
-                        console.log(data.results[i]);
+                    for (i = 0; i < data.length; i++) {
+                        var marker = L.marker([data[i].lat, data[i].lon]).addTo(map);
+                        marker.bindPopup(data[i].licensee_name_business);
                     }
                 });
            });
@@ -47,15 +50,28 @@ const (
 
 </html>
 `
-
-	apiFmt = `https://api.enigma.io/v2/data/%s/enigma.licenses.liquor.us?search[]=@establishment_address_zip+("11222")&conjunction=and`
-
-	api = "http://nominatim.openstreetmap.org/search?format=json&street=292+eckford+street&city=brooklyn&state=ny&county=kings&countrycodes=us"
 )
 
+var (
+	nomURL = `http://nominatim.openstreetmap.org/search`
+
+	enigmaDataset = `enigma.licenses.liquor.us`
+	enigmaAPIKey  = os.Getenv("ENGIMA_API_KEY")
+	enigmaURL     = fmt.Sprint(
+		`https://api.enigma.io/v2/data/`,
+		os.Getenv("ENIGMA_API_KEY"),
+		`/`, enigmaDataset,
+		`?search[]=@establishment_address_zip+("11222")&conjunction=and`,
+	)
+
+	// cache licenses after loading once
+	cachedLicenses []*license
+)
+
+// initValues is returned to init the map
 type initValues struct {
-	Lat         float32
-	Long        float32
+	Lat         float64
+	Lon         float64
 	UrlTemplate string
 	MapHeight   string
 	DefaultZoom int
@@ -65,24 +81,113 @@ type initValues struct {
 	}
 }
 
-/*
-type liquorRow struct {
-	Address string `json:"establishment_address_street1"`
+// enigmaResponse is what enigmaURL returns
+type enigmaResponse struct {
+	Result []*license
 }
 
-type engimaResults struct {
-	Result []liquorRow
-}
-*/
+// license is a single instance of license from enigma.licenses.liquor.us
+type license struct {
+	// Data from engima
+	EstablishmentName string `json:"licensee_name_business"`
+	Address           string `json:"establishment_address_street1"`
+	City              string `json:"establishment_address_city"`
+	State             string `json:"establishment_address_state"`
+	Zip               string `json:"establishment_address_zip"`
 
+	// appended data from nominatim
+	Lat float64 `json:"lat"`
+	Lon float64 `json:"lon"`
+}
+
+// nomResp is the response from http://nominatim.openstreetmap.org/
+type nomResp []struct {
+	Lat string
+	Lon string
+}
+
+// getJSON GETs a URL and unmarshals into obj, or returns an error
+func getJSON(url string, obj interface{}) (err error) {
+	resp, err := http.Get(url)
+
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	defer resp.Body.Close()
+
+	b, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	err = json.Unmarshal(b, obj)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	// Success!
+	return
+}
+
+func loadDrinks() {
+	log.Println("starting to load drinks")
+
+	// Get the liceneses from Engima
+	eResp := enigmaResponse{}
+	err := getJSON(enigmaURL, &eResp)
+	log.Println(enigmaURL)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	// Append address info
+	for _, license := range eResp.Result {
+		v := url.Values{}
+		v.Set("format", "json")
+		v.Set("street", license.Address)
+		v.Set("city", license.City)
+		v.Set("state", license.State)
+
+		nr := nomResp{}
+		err = getJSON(fmt.Sprint(nomURL, "?", v.Encode()), &nr)
+		if err != nil {
+			log.Println(err)
+			continue
+		}
+		if len(nr) < 1 {
+			log.Println("No response from ", nomURL)
+			continue
+		}
+
+		license.Lat, err = strconv.ParseFloat(nr[0].Lat, 64)
+		if err != nil {
+			log.Println("Can't convert latitude", err)
+			continue
+		}
+
+		license.Lon, err = strconv.ParseFloat(nr[0].Lon, 64)
+		if err != nil {
+			log.Println("Can't convert longitude", err)
+			continue
+		}
+		log.Printf("%+v", license)
+
+		cachedLicenses = append(cachedLicenses, license)
+	}
+	log.Println("done loading")
+}
+
+// initVals is a handler that returns JSON to initialize the map
 func initVals(w http.ResponseWriter, r *http.Request) {
 	i := initValues{}
 	i.Lat = 40.7263
-	i.Long = -73.9456
+	i.Lon = -73.9456
 	i.DefaultZoom = 15
 	i.UrlTemplate = `http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`
-	//i.UrlTemplate = `http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png`
-	//i.UrlTemplate = `http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png`
 
 	i.Options.Attribution = `© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors`
 	i.Options.MaxZoom = 18
@@ -97,30 +202,20 @@ func initVals(w http.ResponseWriter, r *http.Request) {
 	w.Write(b)
 }
 
+// drinks is a handler that returns data on the drinking establishments
+// in the neighborhood.
 func drinks(w http.ResponseWriter, r *http.Request) {
-	apiURL := fmt.Sprintf(apiFmt, os.Getenv("ENIGMA_API_KEY"))
 
-	resp, err := http.Get(apiURL)
-
+	b, err := json.Marshal(cachedLicenses)
 	if err != nil {
 		log.Println(err)
 		return
 	}
-	defer resp.Body.Close()
 
-	b, err := ioutil.ReadAll(resp.Body)
+	_, err = w.Write(b)
 	if err != nil {
 		log.Println(err)
 	}
-	log.Println(apiURL)
-	log.Printf("%s", b)
-
-	/*
-		_, err = io.Copy(w, resp.Body)
-		if err != nil {
-			log.Println(err)
-		}
-	*/
 }
 
 func homepage(w http.ResponseWriter, r *http.Request) {
@@ -128,6 +223,8 @@ func homepage(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	go loadDrinks()
+
 	http.HandleFunc("/svc/init", initVals)
 	http.HandleFunc("/svc/drinks", drinks)
 	http.HandleFunc("/", homepage)
