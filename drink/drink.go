@@ -53,7 +53,8 @@ const (
 )
 
 var (
-	nomURL = `http://nominatim.openstreetmap.org/search`
+	nomURL       = `http://nominatim.openstreetmap.org/search`
+	liquorSearch = `?search[]=@establishment_address_zip+("11222")&conjunction=and`
 
 	enigmaDataset = `enigma.licenses.liquor.us`
 	enigmaAPIKey  = os.Getenv("ENGIMA_API_KEY")
@@ -61,7 +62,7 @@ var (
 		`https://api.enigma.io/v2/data/`,
 		os.Getenv("ENIGMA_API_KEY"),
 		`/`, enigmaDataset,
-		`?search[]=@establishment_address_zip+("11222")&conjunction=and`,
+		liquorSearch,
 	)
 
 	// cache licenses after loading once
@@ -132,51 +133,61 @@ func getJSON(url string, obj interface{}) (err error) {
 	return
 }
 
+func appendGeo(lic *license) (err error) {
+	v := url.Values{}
+	v.Set("format", "json")
+	v.Set("street", lic.Address)
+	v.Set("city", lic.City)
+	v.Set("state", lic.State)
+
+	nr := nomResp{}
+	err = getJSON(fmt.Sprint(nomURL, "?", v.Encode()), &nr)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	if len(nr) < 1 {
+		log.Println("No response from ", nomURL)
+
+		return
+	}
+
+	lic.Lat, err = strconv.ParseFloat(nr[0].Lat, 64)
+	if err != nil {
+		log.Println("Can't convert latitude", err)
+		return
+	}
+
+	lic.Lon, err = strconv.ParseFloat(nr[0].Lon, 64)
+	if err != nil {
+		log.Println("Can't convert longitude", err)
+		return
+	}
+
+	return
+}
+
+// loadDrinks loads places to drink in the background
 func loadDrinks() {
 	log.Println("starting to load drinks")
 
 	// Get the liceneses from Engima
 	eResp := enigmaResponse{}
 	err := getJSON(enigmaURL, &eResp)
-	log.Println(enigmaURL)
 	if err != nil {
 		log.Println(err)
 		return
 	}
 
-	// Append address info
-	for _, license := range eResp.Result {
-		v := url.Values{}
-		v.Set("format", "json")
-		v.Set("street", license.Address)
-		v.Set("city", license.City)
-		v.Set("state", license.State)
-
-		nr := nomResp{}
-		err = getJSON(fmt.Sprint(nomURL, "?", v.Encode()), &nr)
+	// Append geo and yelp info
+	for _, lic := range eResp.Result {
+		err = appendGeo(lic)
 		if err != nil {
-			log.Println(err)
-			continue
-		}
-		if len(nr) < 1 {
-			log.Println("No response from ", nomURL)
 			continue
 		}
 
-		license.Lat, err = strconv.ParseFloat(nr[0].Lat, 64)
-		if err != nil {
-			log.Println("Can't convert latitude", err)
-			continue
-		}
-
-		license.Lon, err = strconv.ParseFloat(nr[0].Lon, 64)
-		if err != nil {
-			log.Println("Can't convert longitude", err)
-			continue
-		}
-		log.Printf("%+v", license)
-
-		cachedLicenses = append(cachedLicenses, license)
+		log.Printf("%+v", lic)
+		cachedLicenses = append(cachedLicenses, lic)
 	}
 	log.Println("done loading")
 }
@@ -218,6 +229,7 @@ func drinks(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// homepage is a handler that renders the homepage
 func homepage(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, homepageHTML)
 }
