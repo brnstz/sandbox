@@ -35,6 +35,21 @@ const (
 
         <script>
             var map;
+            var colorIcon = L.Icon.extend({
+                options: {
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41],
+                    popupAnchor: [1, -34],
+                    shadowSize: [41, 41] 
+                }
+            });
+
+            var redIcon = new colorIcon({iconUrl: 'http://brnstz.com/images/marker-icon-red.png'});
+            var greenIcon = new colorIcon({iconUrl: 'http://brnstz.com/images/marker-icon-green.png'});
+            var yellowIcon = new colorIcon({iconUrl: 'http://brnstz.com/images/marker-icon-yellow.png'});
+            var blueIcon = new colorIcon({iconUrl: 'http://brnstz.com/images/marker-icon.png'});
+            var greyIcon = new colorIcon({iconUrl: 'http://brnstz.com/images/marker-icon-grey.png'});
+
             $(document).ready(function() {
                 $.getJSON("svc/init", function(data) {
                     map = L.map('map').setView(
@@ -45,10 +60,20 @@ const (
 
                 $.getJSON("svc/drinks", function(data) {
                     for (var key in data) {
-                        console.log(key);
                         console.log(data[key]);
-                        var marker = L.marker([data[key].lat, data[key].lon]).addTo(map);
-                        marker.bindPopup(data[key].licensee_name_business);
+                        var curIcon = redIcon;
+                        if (data[key].currentgrade == "A") {
+                            curIcon = greenIcon;
+                        } else if (data[key].currentgrade == "B") {
+                            curIcon = blueIcon;
+                        } else if (data[key].currentgrade == "C") {
+                            curIcon = yellowIcon;
+                        } else if (data[key].currentgrade == "") {
+                            curIcon = greyIcon;
+                        }
+                             
+                        var marker = L.marker([data[key].lat, data[key].lon], {icon: curIcon}).addTo(map);
+                        marker.bindPopup(data[key].licensee_name_business + "\nGRADE: " + data[key].currentgrade);
                     }
                 });
            });
@@ -277,6 +302,8 @@ func processGeo(geoChan, licChan chan *license, wg *sync.WaitGroup) {
 			continue
 		}
 
+		log.Println("Got response from", nomURL)
+
 		licChan <- lic
 	}
 	wg.Done()
@@ -308,7 +335,7 @@ func loadDrinks() {
 
 	wg := &sync.WaitGroup{}
 
-	for i := 0; i < 20; i++ {
+	for i := 0; i < 5; i++ {
 		wg.Add(1)
 		go processGeo(geoChan, licChan, wg)
 	}
@@ -423,6 +450,7 @@ func homepage(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	log.SetFlags(log.Lshortfile)
 	loadDrinks()
 	loadInspections()
 
