@@ -49,6 +49,12 @@ func main() {
 	}
 	http.Handle("cluster.brnstz.com/", httputil.NewSingleHostReverseProxy(clusterUrl))
 
+	drinkUrl, err := url.Parse("http://localhost:8083")
+	if err != nil {
+		panic(err)
+	}
+	http.Handle("drink.brnstz.com/", httputil.NewSingleHostReverseProxy(clusterUrl))
+
 	err = http.ListenAndServe(":80", nil)
 
 	if err != nil {
