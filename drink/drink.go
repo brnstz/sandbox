@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -10,6 +11,7 @@ import (
 	"net/url"
 	"os"
 	"strconv"
+	"strings"
 )
 
 const (
@@ -53,17 +55,8 @@ const (
 )
 
 var (
-	nomURL       = `http://nominatim.openstreetmap.org/search`
-	liquorSearch = `?search[]=@establishment_address_zip+("11222")&conjunction=and`
-
-	enigmaDataset = `enigma.licenses.liquor.us`
-	enigmaAPIKey  = os.Getenv("ENGIMA_API_KEY")
-	enigmaURL     = fmt.Sprint(
-		`https://api.enigma.io/v2/data/`,
-		os.Getenv("ENIGMA_API_KEY"),
-		`/`, enigmaDataset,
-		liquorSearch,
-	)
+	// URL to search for address and retrieve lat, lon
+	nomURL = `http://nominatim.openstreetmap.org/search`
 
 	// cache licenses after loading once
 	cachedLicenses []*license
@@ -82,8 +75,8 @@ type initValues struct {
 	}
 }
 
-// enigmaResponse is what enigmaURL returns
-type enigmaResponse struct {
+// licenseResponse is what calls to enigma.licenses.liquor.us return
+type licenseResponse struct {
 	Result []*license
 }
 
@@ -105,6 +98,68 @@ type license struct {
 type nomResp []struct {
 	Lat string
 	Lon string
+}
+
+// A single
+type enigmaSearchVal struct {
+	key    string
+	values []string
+}
+
+// QuotedValues returns each value in esv.values quoted for use in String()
+func (esv *enigmaSearchVal) QuotedValues() []string {
+	quoted := make([]string, len(esv.values))
+
+	for i, _ := range esv.values {
+		var b bytes.Buffer
+		// Starting quote
+		b.WriteRune('"')
+
+		// Go through each character to catch quotes we must escape
+		for _, char := range esv.values[i] {
+			switch char {
+			case '"':
+				// Escape quotes with a \
+				b.WriteString(`\"`)
+
+			default:
+				// Other characters just write verbatim
+				b.WriteRune(char)
+			}
+		}
+
+		// Ending quote
+		b.WriteRune('"')
+
+		quoted[i] = b.String()
+	}
+
+	return quoted
+}
+
+// String stringifies an enigmaSearchVal.
+// Example: @cuisine_type ("Polish"|"Chinese")
+func (esv *enigmaSearchVal) String() string {
+	return fmt.Sprint("@", esv.key, " (",
+		strings.Join(esv.QuotedValues(), "|"), ")",
+	)
+}
+
+// getEnigmaURL returns a full URL to search dataset for the values passed.
+// Lets API infer default conjunction of "and". FIXME: May break in edge cases.
+func getEnigmaURL(dataset string, search []enigmaSearchVal, page string) string {
+	v := url.Values{}
+	for _, s := range search {
+		v.Add("search[]", s.String())
+	}
+	v.Set("page", page)
+
+	baseURL := fmt.Sprint(
+		`https://api.enigma.io/v2/data/`, os.Getenv("ENIGMA_API_KEY"), `/`,
+		dataset,
+	)
+
+	return fmt.Sprint(baseURL, "?", v.Encode())
 }
 
 // getJSON GETs a URL and unmarshals into obj, or returns an error
@@ -133,6 +188,7 @@ func getJSON(url string, obj interface{}) (err error) {
 	return
 }
 
+// appendGeo appends latitude and longitude to lic
 func appendGeo(lic *license) (err error) {
 	v := url.Values{}
 	v.Set("format", "json")
@@ -171,15 +227,25 @@ func appendGeo(lic *license) (err error) {
 func loadDrinks() {
 	log.Println("starting to load drinks")
 
+	// Get all places in Greenpoint with a liquor license. First page (1)
+	// should be enough.
+	esv := enigmaSearchVal{
+		key:    "establishment_address_zip",
+		values: []string{"11222"},
+	}
+	enigmaURL := getEnigmaURL(
+		`enigma.licenses.liquor.us`, []enigmaSearchVal{esv}, `1`,
+	)
+
 	// Get the liceneses from Engima
-	eResp := enigmaResponse{}
+	eResp := licenseResponse{}
 	err := getJSON(enigmaURL, &eResp)
 	if err != nil {
 		log.Println(err)
 		return
 	}
 
-	// Append geo and yelp info
+	// Append geo info
 	for _, lic := range eResp.Result {
 		err = appendGeo(lic)
 		if err != nil {
