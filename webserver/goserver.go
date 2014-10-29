@@ -53,7 +53,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	http.Handle("drink.brnstz.com/", httputil.NewSingleHostReverseProxy(clusterUrl))
+	http.Handle("drink.brnstz.com/", httputil.NewSingleHostReverseProxy(drinkUrl))
 
 	err = http.ListenAndServe(":80", nil)
 
