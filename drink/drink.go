@@ -57,12 +57,12 @@ const (
 
 </html>
 `
+
+	// URL to search for address and retrieve lat, lon
+	nomURL = `http://nominatim.openstreetmap.org/search`
 )
 
 var (
-	// URL to search for address and retrieve lat, lon
-	nomURL = `http://nominatim.openstreetmap.org/search`
-
 	// cache licenses after loading once, also allow to look up my
 	// license.key()
 	cachedLicenses = map[string]*license{}
