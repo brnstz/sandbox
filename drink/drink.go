@@ -73,7 +73,9 @@ const (
                         }
                              
                         var marker = L.marker([data[key].lat, data[key].lon], {icon: curIcon}).addTo(map);
-                        marker.bindPopup(data[key].licensee_name_business + "\nGRADE: " + data[key].currentgrade);
+                        marker.bindPopup("Licensee: " + data[key].licensee_name_business +
+                            "<br>Business: " + data[key].dba +
+                            "<br>Inspection Grade: " + data[key].currentgrade);
                     }
                 });
            });
@@ -106,8 +108,7 @@ type initValues struct {
 	MapHeight   string
 	DefaultZoom int
 	Options     struct {
-		Attribution string
-		MaxZoom     int
+		MaxZoom int
 	}
 }
 
@@ -130,6 +131,7 @@ type license struct {
 	Lon float64 `json:"lon"`
 
 	// appended from restaurant inspection
+	BusinessName   string     `json:"dba"`
 	CurrentGrade   string     `json:"currentgrade"`
 	InspectionDate *time.Time `json:"inspdate"`
 }
@@ -141,7 +143,7 @@ func (l *license) key() string {
 	// restaurant inspection dataset consistently has "AVENUE" and "STREET" in
 	// all caps. Do some regexs to normalize. This should match
 	// us.states.ny.cities.nyc.dohmh.restaurants.inspections building+street
-	a := l.Address
+	a := strings.ToUpper(l.Address)
 
 	a = strings.TrimSpace(aveR.ReplaceAllString(a, " AVENUE "))
 	a = strings.TrimSpace(stR.ReplaceAllString(a, " STREET "))
@@ -157,6 +159,7 @@ type inspectionResponse struct {
 
 // inspection is a single result from inspectionResponse
 type inspection struct {
+	BusinessName   string     `json:"dba"`
 	Building       string     `json:"building"`
 	Street         string     `json:"street"`
 	CurrentGrade   string     `json:"currentgrade"`
@@ -397,6 +400,7 @@ func loadInspections() {
 			if cachedLicenses[key] != nil {
 				log.Printf("%+v", resp)
 				cachedLicenses[key].CurrentGrade = resp.CurrentGrade
+				cachedLicenses[key].BusinessName = resp.BusinessName
 				cachedLicenses[key].InspectionDate = resp.InspectionDate
 			}
 		}
@@ -413,10 +417,8 @@ func initVals(w http.ResponseWriter, r *http.Request) {
 	i.Lat = 40.7263
 	i.Lon = -73.9456
 	i.DefaultZoom = 15
-	i.UrlTemplate = `http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`
-
-	i.Options.Attribution = `© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors`
-	i.Options.MaxZoom = 18
+	i.UrlTemplate = `http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png`
+	i.Options.MaxZoom = 20
 
 	b, err := json.Marshal(i)
 
