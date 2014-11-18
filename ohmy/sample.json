@@ -1,0 +1,2356 @@
+[
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 50,
+                "name": "TV on the Radio",
+                "profiled": false,
+                "slug": "tv-on-the-radio"
+            }
+        ],
+        "id": 205731,
+        "on_sale_at": "2014-09-05T12:00:00-04:00",
+        "price": "$40",
+        "price_abbr": "$40",
+        "recommended": 1,
+        "show_savings_count": 39,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketmaster.com/tv-on-the-radio-new-york-new-york-11-18-2014/event/00004D1DBF245785",
+        "url": "http://www.ohmyrockness.com/shows/205731-tv-on-the-radio-apollo-theater",
+        "venue": {
+            "full_address": "253 West 125th Street\nNew York, NY 10027",
+            "id": 613,
+            "latitude": "40.810232",
+            "longitude": "-73.94983599999999",
+            "name": "Apollo Theater",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 4,
+            "slug": "apollo-theater",
+            "url": "http://www.ohmyrockness.com/venues/apollo-theater",
+            "venue_savings_count": 0,
+            "website": "http://www.apollotheater.com/"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 33475,
+                "name": "High Highs",
+                "profiled": false,
+                "slug": "high-highs"
+            },
+            {
+                "id": 51160,
+                "name": "Fascinator",
+                "profiled": false,
+                "slug": "fascinator"
+            },
+            {
+                "id": 51341,
+                "name": "Nicholas Nicholas",
+                "profiled": true,
+                "slug": "nicholas-nicholas"
+            }
+        ],
+        "id": 231051,
+        "on_sale_at": null,
+        "price": "$10",
+        "price_abbr": "$10",
+        "recommended": 0,
+        "show_savings_count": 4,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=www.ticketfly.com/purchase/event/714167",
+        "url": "http://www.ohmyrockness.com/shows/231051-high-highs-fascinator-nicholas-nicholas-baby-s-all-right",
+        "venue": {
+            "full_address": "146 Broadway\nBrooklyn, NY 11211",
+            "id": 2180,
+            "latitude": "40.709985",
+            "longitude": "-73.96347",
+            "name": "Baby's All Right",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 23,
+            "slug": "baby-s-all-right",
+            "url": "http://ohmyrockness.com/venues/baby-s-all-right",
+            "venue_savings_count": 0,
+            "website": "http://babysallright.com/"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 40155,
+                "name": "Neil De Grasse-Tyson",
+                "profiled": false,
+                "slug": "neil-de-grasse-tyson"
+            },
+            {
+                "id": 751,
+                "name": "Eugene Mirman",
+                "profiled": false,
+                "slug": "eugene-mirman"
+            }
+        ],
+        "id": 211601,
+        "on_sale_at": "2014-09-19T11:00:00-04:00",
+        "price": "$35",
+        "price_abbr": "$35",
+        "recommended": 1,
+        "show_savings_count": 11,
+        "sold_out": false,
+        "stage": "Startalk Live!",
+        "starts_at": "2014-11-18T19:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketmaster.com/event/1D004D259A7A260B",
+        "url": "http://www.ohmyrockness.com/shows/211601-neil-de-grasse-tyson-eugene-mirman-beacon-theater",
+        "venue": {
+            "full_address": "2124 Broadway\nNew York, NY 10023",
+            "id": 9,
+            "latitude": "40.78038859999999",
+            "longitude": "-73.9813815",
+            "name": "Beacon Theater",
+            "phone": "(212) 496-7070",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 19,
+            "slug": "beacon-theater",
+            "url": "http://www.ohmyrockness.com/venues/beacon-theater",
+            "venue_savings_count": 0,
+            "website": ""
+        }
+    },
+    {
+        "age": "18+",
+        "cached_bands": [
+            {
+                "id": 14404,
+                "name": "Thee Oh Sees",
+                "profiled": true,
+                "slug": "thee-oh-sees"
+            },
+            {
+                "id": 54091,
+                "name": "Jack Name",
+                "profiled": false,
+                "slug": "jack-name"
+            }
+        ],
+        "id": 210191,
+        "on_sale_at": "2014-09-19T12:00:00-04:00",
+        "price": "$tba",
+        "price_abbr": "$tba",
+        "recommended": 1,
+        "show_savings_count": 51,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketmaster.com/Bowery-Ballroom-tickets-New-York/venue/1100",
+        "url": "http://ohmyrockness.com/shows/210191-thee-oh-sees-jack-name-bowery-ballroom",
+        "venue": {
+            "full_address": "6 Delancey Street\n@ Bowery\nNew York, NY 10002",
+            "id": 1,
+            "latitude": "40.72040640000001",
+            "longitude": "-73.9933583",
+            "name": "Bowery Ballroom",
+            "phone": "(212) 533-2111",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 47,
+            "slug": "bowery-ballroom",
+            "url": "http://ohmyrockness.com/venues/bowery-ballroom",
+            "venue_savings_count": 1,
+            "website": "http://www.boweryballroom.com"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 19861,
+                "name": "Jessica Lea Mayfield",
+                "profiled": false,
+                "slug": "jessica-lea-mayfield"
+            }
+        ],
+        "id": 211301,
+        "on_sale_at": "2014-09-18T10:00:00-04:00",
+        "price": "$10 adv. / $12 door",
+        "price_abbr": "$10a / $12d",
+        "recommended": 0,
+        "show_savings_count": 6,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=www.ticketfly.com/purchase/event/685463?utm_medium=api",
+        "url": "http://www.ohmyrockness.com/shows/211301-jessica-lea-mayfield-brooklyn-bowl",
+        "venue": {
+            "full_address": "61 Wythe Avenue\nBrooklyn, NY 11211",
+            "id": 1063,
+            "latitude": "40.7218878",
+            "longitude": "-73.9573817",
+            "name": "Brooklyn Bowl",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 28,
+            "slug": "brooklyn-bowl",
+            "url": "http://www.ohmyrockness.com/venues/brooklyn-bowl",
+            "venue_savings_count": 0,
+            "website": "http://www.brooklynbowl.com"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 121981,
+                "name": "Niccolo Pizarro",
+                "profiled": false,
+                "slug": "niccolo-pizarro"
+            },
+            {
+                "id": 38692,
+                "name": "Philip Lynch",
+                "profiled": false,
+                "slug": "philip-lynch"
+            },
+            {
+                "id": 121991,
+                "name": "Steph and Dylan",
+                "profiled": false,
+                "slug": "steph-and-dylan"
+            },
+            {
+                "id": 122001,
+                "name": "Ryan Rickenbach",
+                "profiled": false,
+                "slug": "ryan-rickenbach"
+            }
+        ],
+        "id": 231371,
+        "on_sale_at": null,
+        "price": "$5",
+        "price_abbr": "$5",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "",
+        "url": "http://www.ohmyrockness.com/shows/231371-niccolo-pizarro-philip-lynch-steph-and-dylan-ryan-rickenbach-cake-shop",
+        "venue": {
+            "full_address": "152 Ludlow Street\nNew York, NY 10002",
+            "id": 197,
+            "latitude": "40.7208425",
+            "longitude": "-73.9878434",
+            "name": "Cake Shop",
+            "phone": "(212) 253-0036",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 12,
+            "slug": "cake-shop",
+            "url": "http://www.ohmyrockness.com/venues/cake-shop",
+            "venue_savings_count": 0,
+            "website": "http://www.cake-shop.com/"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 44116,
+                "name": "All Boy/All Girl",
+                "profiled": false,
+                "slug": "all-boy-all-girl"
+            },
+            {
+                "id": 51800,
+                "name": "Jamboree Sunday",
+                "profiled": false,
+                "slug": "jamboree-sunday"
+            },
+            {
+                "id": 123641,
+                "name": "Admira",
+                "profiled": false,
+                "slug": "admira"
+            }
+        ],
+        "id": 234821,
+        "on_sale_at": null,
+        "price": "$8",
+        "price_abbr": "$8",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=https://www.ticketfly.com/purchase/event/718799",
+        "url": "http://www.ohmyrockness.com/shows/234821-all-boy-all-girl-jamboree-sunday-admira-cameo-gallery",
+        "venue": {
+            "full_address": "93 North 6th Street\n(between Berry & Wythe)\nBrooklyn, NY 11211",
+            "id": 948,
+            "latitude": "40.7064461",
+            "longitude": "-73.9536163",
+            "name": "Cameo Gallery",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 13,
+            "slug": "cameo-gallery",
+            "url": "http://www.ohmyrockness.com/venues/cameo-gallery",
+            "venue_savings_count": 0,
+            "website": "http://www.cameony.net/"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 120031,
+                "name": "Top Secret!",
+                "profiled": false,
+                "slug": "top-secret"
+            }
+        ],
+        "id": 233211,
+        "on_sale_at": null,
+        "price": "$10",
+        "price_abbr": "$10",
+        "recommended": 1,
+        "show_savings_count": 7,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "",
+        "url": "http://www.ohmyrockness.com/shows/233211-top-secret-death-by-audio",
+        "venue": {
+            "full_address": "49 S 2nd Street\nBrooklyn, NY 11249",
+            "id": 278,
+            "latitude": "40.7146628",
+            "longitude": "-73.9658753",
+            "name": "Death By Audio",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 7,
+            "slug": "death-by-audio",
+            "url": "http://www.ohmyrockness.com/venues/death-by-audio",
+            "venue_savings_count": 0,
+            "website": ""
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 43103,
+                "name": "New Myths",
+                "profiled": false,
+                "slug": "new-myths"
+            },
+            {
+                "id": 46302,
+                "name": "Mount Sharp",
+                "profiled": false,
+                "slug": "mount-sharp"
+            },
+            {
+                "id": 60483,
+                "name": "Thin Lips",
+                "profiled": false,
+                "slug": "thin-lips"
+            },
+            {
+                "id": 46733,
+                "name": "A Deer A Horse",
+                "profiled": false,
+                "slug": "a-deer-a-horse"
+            }
+        ],
+        "id": 221371,
+        "on_sale_at": null,
+        "price": "$10",
+        "price_abbr": "$10",
+        "recommended": 0,
+        "show_savings_count": 2,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=www.ticketfly.com/purchase/event/701311",
+        "url": "http://www.ohmyrockness.com/shows/221371-new-myths-mount-sharp-thin-lips-a-deer-a-horse-glasslands",
+        "venue": {
+            "full_address": "289 Kent Avenue\nBrooklyn, NY 11249",
+            "id": 449,
+            "latitude": "40.7147618",
+            "longitude": "-73.96673489999999",
+            "name": "Glasslands",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 32,
+            "slug": "glasslands",
+            "url": "http://ohmyrockness.com/venues/glasslands",
+            "venue_savings_count": 0,
+            "website": "http://www.theglasslands.com/"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 43746,
+                "name": "Moon Hooch",
+                "profiled": false,
+                "slug": "moon-hooch"
+            }
+        ],
+        "id": 220771,
+        "on_sale_at": null,
+        "price": "$12",
+        "price_abbr": "$12",
+        "recommended": 0,
+        "show_savings_count": 5,
+        "sold_out": false,
+        "stage": "Knit Ball",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketweb.com/t3/sale/SaleEventDetail?dispatch=loadSelectionData&eventId=5405405&pl=kfny",
+        "url": "http://www.ohmyrockness.com/shows/220771-moon-hooch-knitting-factory-brooklyn",
+        "venue": {
+            "full_address": "361 Metropolitan Avenue\nBrooklyn, NY 11211",
+            "id": 13,
+            "latitude": "40.7142193",
+            "longitude": "-73.9558328",
+            "name": "Knitting Factory Brooklyn",
+            "phone": "347.529.6696",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 19,
+            "slug": "knitting-factory-brooklyn",
+            "url": "http://www.ohmyrockness.com/venues/knitting-factory-brooklyn",
+            "venue_savings_count": 0,
+            "website": "http://www.knittingfactory.com"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 41516,
+                "name": "Of Clocks and Clouds",
+                "profiled": false,
+                "slug": "of-clocks-and-clouds"
+            }
+        ],
+        "id": 233501,
+        "on_sale_at": null,
+        "price": "$10",
+        "price_abbr": "$10",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T21:30:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketmaster.com/Mercury-Lounge-tickets-New-York/venue/1101",
+        "url": "http://www.ohmyrockness.com/shows/233501-of-clocks-and-clouds-mercury-lounge",
+        "venue": {
+            "full_address": "217 E. Houston Street\nNew York, NY 10002",
+            "id": 12,
+            "latitude": "40.722036",
+            "longitude": "-73.986806",
+            "name": "Mercury Lounge",
+            "phone": "212-260-4700",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 64,
+            "slug": "mercury-lounge",
+            "url": "http://www.ohmyrockness.com/venues/mercury-lounge",
+            "venue_savings_count": 0,
+            "website": "http://www.mercuryloungenyc.com"
+        }
+    },
+    {
+        "age": "18+",
+        "cached_bands": [
+            {
+                "id": 22831,
+                "name": "Rachael Yamagata",
+                "profiled": false,
+                "slug": "rachael-yamagata"
+            },
+            {
+                "id": 114531,
+                "name": "the dove and the wolf",
+                "profiled": false,
+                "slug": "the-dove-and-the-wolf"
+            }
+        ],
+        "id": 156323,
+        "on_sale_at": "2014-05-16T12:00:00-04:00",
+        "price": "$25",
+        "price_abbr": "$25",
+        "recommended": 0,
+        "show_savings_count": 2,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketmaster.com/event/00004CA8F3A34FD7",
+        "url": "http://www.ohmyrockness.com/shows/156323-rachael-yamagata-the-dove-and-the-wolf-music-hall-of-williamsburg",
+        "venue": {
+            "full_address": "66 North Sixth Street\nBrooklyn, NY 11211",
+            "id": 662,
+            "latitude": "40.7192783",
+            "longitude": "-73.9616949",
+            "name": "Music Hall of Williamsburg",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 51,
+            "slug": "music-hall-of-williamsburg",
+            "url": "http://www.ohmyrockness.com/venues/music-hall-of-williamsburg",
+            "venue_savings_count": 0,
+            "website": "http://www.musichallofwilliamsburg.com/"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 52997,
+                "name": "Prettiots",
+                "profiled": false,
+                "slug": "prettiots"
+            },
+            {
+                "id": 24004,
+                "name": "Dreamers",
+                "profiled": false,
+                "slug": "dreamers"
+            },
+            {
+                "id": 47320,
+                "name": "The Teen Age",
+                "profiled": true,
+                "slug": "the-teen-age"
+            },
+            {
+                "id": 45291,
+                "name": "Midnight Hollow",
+                "profiled": false,
+                "slug": "midnight-hollow"
+            },
+            {
+                "id": 54216,
+                "name": "Captain Baby",
+                "profiled": false,
+                "slug": "captain-baby"
+            }
+        ],
+        "id": 232171,
+        "on_sale_at": null,
+        "price": "$8",
+        "price_abbr": "$8",
+        "recommended": 0,
+        "show_savings_count": 3,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T19:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketweb.com/t3/sale/SaleEventDetail?dispatch=loadSelectionData&eventId=5428955",
+        "url": "http://www.ohmyrockness.com/shows/232171-prettiots-dreamers-the-teen-age-midnight-hollow-captain-baby-pianos",
+        "venue": {
+            "full_address": "158 Ludlow Street\nNew York, NY 10002",
+            "id": 15,
+            "latitude": "40.7210324",
+            "longitude": "-73.98775169999999",
+            "name": "Pianos",
+            "phone": "212.505.3733",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 4,
+            "slug": "pianos",
+            "url": "http://www.ohmyrockness.com/venues/pianos",
+            "venue_savings_count": 0,
+            "website": "http://www.pianosnyc.com/"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 35201,
+                "name": "Friend Roulette",
+                "profiled": false,
+                "slug": "friend-roulette"
+            },
+            {
+                "id": 45434,
+                "name": "The Flag",
+                "profiled": false,
+                "slug": "the-flag"
+            },
+            {
+                "id": 36586,
+                "name": "KNTRLR",
+                "profiled": false,
+                "slug": "kntrlr"
+            }
+        ],
+        "id": 234561,
+        "on_sale_at": null,
+        "price": "$7",
+        "price_abbr": "$7",
+        "recommended": 0,
+        "show_savings_count": 1,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T19:00:00-05:00",
+        "tickets_url": "",
+        "url": "http://www.ohmyrockness.com/shows/234561-friend-roulette-the-flag-kntrlr-silent-barn",
+        "venue": {
+            "full_address": "603 Bushwick Ave.\nBrooklyn, NY 11206",
+            "id": 480,
+            "latitude": "40.698669",
+            "longitude": "-73.934179",
+            "name": "Silent Barn",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 9,
+            "slug": "silent-barn",
+            "url": "http://www.ohmyrockness.com/venues/silent-barn",
+            "venue_savings_count": 0,
+            "website": "http://www.silentbarn.org/"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 17133,
+                "name": "JJ Grey & Mofro",
+                "profiled": false,
+                "slug": "jj-grey-mofro"
+            },
+            {
+                "id": 14726,
+                "name": "Marc Broussard",
+                "profiled": false,
+                "slug": "marc-broussard"
+            },
+            {
+                "id": 15066,
+                "name": "The London Souls",
+                "profiled": false,
+                "slug": "the-london-souls"
+            }
+        ],
+        "id": 236331,
+        "on_sale_at": "2014-11-21T12:00:00-05:00",
+        "price": "$tba",
+        "price_abbr": "$tba",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketmaster.com/Terminal-5-tickets-New-York/venue/1112",
+        "url": "http://www.ohmyrockness.com/shows/236331-jj-grey-mofro-marc-broussard-the-london-souls-terminal-5",
+        "venue": {
+            "full_address": "610 W. 56th Street\nNew York, NY 10019",
+            "id": 688,
+            "latitude": "40.76970800000001",
+            "longitude": "-73.992762",
+            "name": "Terminal 5",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 36,
+            "slug": "terminal-5",
+            "url": "http://www.ohmyrockness.com/venues/terminal-5",
+            "venue_savings_count": 0,
+            "website": "http://terminal5nyc.com"
+        }
+    },
+    {
+        "age": "16+",
+        "cached_bands": [
+            {
+                "id": 3807,
+                "name": "Jonathan Richman",
+                "profiled": false,
+                "slug": "jonathan-richman"
+            }
+        ],
+        "id": 210211,
+        "on_sale_at": null,
+        "price": "$20",
+        "price_abbr": "$20",
+        "recommended": 1,
+        "show_savings_count": 18,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=www.ticketfly.com/purchase/event/676981/tfly",
+        "url": "http://www.ohmyrockness.com/shows/210211-jonathan-richman-the-bell-house",
+        "venue": {
+            "full_address": "149 7th Street\nBrooklyn, NY 11215",
+            "id": 877,
+            "latitude": "40.673735",
+            "longitude": "-73.991658",
+            "name": "The Bell House",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 16,
+            "slug": "the-bell-house",
+            "url": "http://www.ohmyrockness.com/venues/the-bell-house",
+            "venue_savings_count": 0,
+            "website": "http://www.thebellhouseny.com/"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 32116,
+                "name": "Diamond Doves",
+                "profiled": false,
+                "slug": "diamond-doves"
+            },
+            {
+                "id": 1371,
+                "name": "Ursa Minor",
+                "profiled": false,
+                "slug": "ursa-minor"
+            },
+            {
+                "id": 122411,
+                "name": "Dina Regine",
+                "profiled": false,
+                "slug": "dina-regine"
+            },
+            {
+                "id": 122421,
+                "name": "Diane Gentile",
+                "profiled": false,
+                "slug": "diane-gentile"
+            }
+        ],
+        "id": 232201,
+        "on_sale_at": null,
+        "price": "$8",
+        "price_abbr": "$8",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T19:30:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketweb.com/t3/sale/SaleEventDetail?dispatch=loadSelectionData&eventId=5401545&pl=boweryelectric",
+        "url": "http://www.ohmyrockness.com/shows/232201-diamond-doves-ursa-minor-dina-regine-diane-gentile-the-bowery-electric",
+        "venue": {
+            "full_address": "327 Bowery\nNew York, NY 10003",
+            "id": 981,
+            "latitude": "40.7257",
+            "longitude": "-73.99167299999999",
+            "name": "The Bowery Electric",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 7,
+            "slug": "the-bowery-electric",
+            "url": "http://www.ohmyrockness.com/venues/the-bowery-electric",
+            "venue_savings_count": 0,
+            "website": "http://www.theboweryelectric.com/index.html"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 80923,
+                "name": "Quiet Down",
+                "profiled": false,
+                "slug": "quiet-down"
+            },
+            {
+                "id": 24391,
+                "name": "Family Fun",
+                "profiled": false,
+                "slug": "family-fun"
+            },
+            {
+                "id": 44945,
+                "name": "Scherzo",
+                "profiled": false,
+                "slug": "scherzo"
+            }
+        ],
+        "id": 229011,
+        "on_sale_at": null,
+        "price": "$8 adv. / $10 door",
+        "price_abbr": "$8a / $10d",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T19:30:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=www.ticketfly.com/purchase/event/698559",
+        "url": "http://www.ohmyrockness.com/shows/229011-quiet-down-family-fun-scherzo-the-rock-shop",
+        "venue": {
+            "full_address": "249 4th Avenue\nBrooklyn, NY 11215",
+            "id": 1275,
+            "latitude": "40.6761399",
+            "longitude": "-73.983451",
+            "name": "The Rock Shop",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 0,
+            "slug": "the-rock-shop",
+            "url": "http://www.ohmyrockness.com/venues/the-rock-shop",
+            "venue_savings_count": 0,
+            "website": "http://www.therockshopny.com/"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 123341,
+                "name": "Extreme Mercy (Jim Loman from Cranium w/ Matt & Brain from A.R.E. Weapons)",
+                "profiled": false,
+                "slug": "extreme-mercy"
+            },
+            {
+                "id": 100303,
+                "name": "On A Clear Day",
+                "profiled": false,
+                "slug": "on-a-clear-day"
+            }
+        ],
+        "id": 234471,
+        "on_sale_at": null,
+        "price": "$10",
+        "price_abbr": "$10",
+        "recommended": 0,
+        "show_savings_count": 1,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=www.ticketfly.com/purchase/event/703495",
+        "url": "http://www.ohmyrockness.com/shows/234471-extreme-mercy-jim-loman-from-cranium-w-matt-brain-from-a-r-e-weapons-on-a-clear-day-trans-pecos",
+        "venue": {
+            "full_address": "915 Wyckoff Avenue\nRidgewood, NY 11385",
+            "id": 2213,
+            "latitude": "40.6969934",
+            "longitude": "-73.9062936",
+            "name": "Trans-Pecos",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 8,
+            "slug": "trans-pecos",
+            "url": "http://www.ohmyrockness.com/venues/trans-pecos",
+            "venue_savings_count": 0,
+            "website": ""
+        }
+    },
+    {
+        "age": "19+",
+        "cached_bands": [
+            {
+                "id": 48267,
+                "name": "Jesse Boykins III",
+                "profiled": false,
+                "slug": "jesse-boykins-iii"
+            },
+            {
+                "id": 13189,
+                "name": "MeLo_X",
+                "profiled": false,
+                "slug": "melo_x"
+            }
+        ],
+        "id": 224081,
+        "on_sale_at": "2014-10-16T12:00:00-04:00",
+        "price": "$12",
+        "price_abbr": "$12",
+        "recommended": 0,
+        "show_savings_count": 1,
+        "sold_out": false,
+        "stage": "Marlin Room",
+        "starts_at": "2014-11-18T20:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketweb.com/t3/sale/SaleEventDetail?dispatch=loadSelectionData&eventId=5424715&pl=",
+        "url": "http://www.ohmyrockness.com/shows/224081-jesse-boykins-iii-melo_x-webster-hall",
+        "venue": {
+            "full_address": "125 East 11th Street\nNew York, NY 10009",
+            "id": 38,
+            "latitude": "40.7317679",
+            "longitude": "-73.9892102",
+            "name": "Webster Hall",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 34,
+            "slug": "webster-hall",
+            "url": "http://www.ohmyrockness.com/venues/webster-hall",
+            "venue_savings_count": 0,
+            "website": "http://www.websterhall.com/"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 49702,
+                "name": "Andrew Wyatt (of Miike Snow)",
+                "profiled": false,
+                "slug": "andrew-wyatt-of-miike-snow"
+            },
+            {
+                "id": 27300,
+                "name": "Sky White Tiger",
+                "profiled": false,
+                "slug": "sky-white-tiger"
+            },
+            {
+                "id": 43234,
+                "name": "SINCE",
+                "profiled": false,
+                "slug": "since"
+            },
+            {
+                "id": 31038,
+                "name": "Prince Rama (DJ set)",
+                "profiled": false,
+                "slug": "prince-rama"
+            },
+            {
+                "id": 50143,
+                "name": "Rinsed (DJ set)",
+                "profiled": false,
+                "slug": "rinsed"
+            }
+        ],
+        "id": 235891,
+        "on_sale_at": null,
+        "price": "$10",
+        "price_abbr": "$10",
+        "recommended": 0,
+        "show_savings_count": 1,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=https://www.ticketfly.com/purchase/event/723385",
+        "url": "http://www.ohmyrockness.com/shows/235891-andrew-wyatt-of-miike-snow-sky-white-tiger-since-prince-rama-dj-set-rinsed-dj-set-baby-s-all-right",
+        "venue": {
+            "full_address": "146 Broadway\nBrooklyn, NY 11211",
+            "id": 2180,
+            "latitude": "40.709985",
+            "longitude": "-73.96347",
+            "name": "Baby's All Right",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 23,
+            "slug": "baby-s-all-right",
+            "url": "http://www.ohmyrockness.com/venues/baby-s-all-right",
+            "venue_savings_count": 0,
+            "website": "http://babysallright.com/"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 122011,
+                "name": "Bronx Cheer",
+                "profiled": false,
+                "slug": "bronx-cheer"
+            },
+            {
+                "id": 30026,
+                "name": "Princess Tiny and the Meats",
+                "profiled": false,
+                "slug": "princess-tiny-and-the-meats"
+            },
+            {
+                "id": 122021,
+                "name": "Gandor Chorale",
+                "profiled": false,
+                "slug": "gandor-chorale"
+            }
+        ],
+        "id": 231381,
+        "on_sale_at": null,
+        "price": "$6",
+        "price_abbr": "$6",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "",
+        "url": "http://www.ohmyrockness.com/shows/231381-bronx-cheer-princess-tiny-and-the-meats-gandor-chorale-cake-shop",
+        "venue": {
+            "full_address": "152 Ludlow Street\nNew York, NY 10002",
+            "id": 197,
+            "latitude": "40.7208425",
+            "longitude": "-73.9878434",
+            "name": "Cake Shop",
+            "phone": "(212) 253-0036",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 12,
+            "slug": "cake-shop",
+            "url": "http://www.ohmyrockness.com/venues/cake-shop",
+            "venue_savings_count": 0,
+            "website": "http://www.cake-shop.com/"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 49321,
+                "name": "Big Terrific Comedy Show",
+                "profiled": false,
+                "slug": "big-terrific-comedy-show"
+            }
+        ],
+        "id": 231551,
+        "on_sale_at": null,
+        "price": "Free",
+        "price_abbr": "Free",
+        "recommended": 0,
+        "show_savings_count": 3,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "",
+        "url": "http://www.ohmyrockness.com/shows/231551-big-terrific-comedy-show-cameo-gallery",
+        "venue": {
+            "full_address": "93 North 6th Street\n(between Berry & Wythe)\nBrooklyn, NY 11211",
+            "id": 948,
+            "latitude": "40.7064461",
+            "longitude": "-73.9536163",
+            "name": "Cameo Gallery",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 14,
+            "slug": "cameo-gallery",
+            "url": "http://www.ohmyrockness.com/venues/cameo-gallery",
+            "venue_savings_count": 0,
+            "website": "http://www.cameony.net/"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 120031,
+                "name": "Top Secret!",
+                "profiled": false,
+                "slug": "top-secret"
+            }
+        ],
+        "id": 233221,
+        "on_sale_at": null,
+        "price": "$10",
+        "price_abbr": "$10",
+        "recommended": 1,
+        "show_savings_count": 14,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "",
+        "url": "http://www.ohmyrockness.com/shows/233221-top-secret-death-by-audio",
+        "venue": {
+            "full_address": "49 S 2nd Street\nBrooklyn, NY 11249",
+            "id": 278,
+            "latitude": "40.7146628",
+            "longitude": "-73.9658753",
+            "name": "Death By Audio",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 7,
+            "slug": "death-by-audio",
+            "url": "http://www.ohmyrockness.com/venues/death-by-audio",
+            "venue_savings_count": 0,
+            "website": ""
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 120421,
+                "name": "Cellar and Point",
+                "profiled": false,
+                "slug": "cellar-and-point"
+            },
+            {
+                "id": 120431,
+                "name": "Empyrean Atlas",
+                "profiled": false,
+                "slug": "empyrean-atlas"
+            },
+            {
+                "id": 120441,
+                "name": "The Knells",
+                "profiled": false,
+                "slug": "the-knells"
+            }
+        ],
+        "id": 228691,
+        "on_sale_at": null,
+        "price": "$10",
+        "price_abbr": "$10",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=www.ticketfly.com/purchase/event/703545",
+        "url": "http://www.ohmyrockness.com/shows/228691-cellar-and-point-empyrean-atlas-the-knells-glasslands",
+        "venue": {
+            "full_address": "289 Kent Avenue\nBrooklyn, NY 11249",
+            "id": 449,
+            "latitude": "40.7147618",
+            "longitude": "-73.96673489999999",
+            "name": "Glasslands",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 32,
+            "slug": "glasslands",
+            "url": "http://ohmyrockness.com/venues/glasslands",
+            "venue_savings_count": 0,
+            "website": "http://www.theglasslands.com/"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 65223,
+                "name": "Daley",
+                "profiled": false,
+                "slug": "daley"
+            },
+            {
+                "id": 45763,
+                "name": "Connor Youngblood",
+                "profiled": false,
+                "slug": "connor-youngblood"
+            },
+            {
+                "id": 76873,
+                "name": "Travis McClung",
+                "profiled": false,
+                "slug": "travis-mcclung"
+            }
+        ],
+        "id": 228701,
+        "on_sale_at": null,
+        "price": "$25",
+        "price_abbr": "$25",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketweb.com/t3/sale/SaleEventDetail?dispatch=loadSelectionData&eventId=5349155",
+        "url": "http://www.ohmyrockness.com/shows/228701-daley-connor-youngblood-travis-mcclung-highline-ballroom",
+        "venue": {
+            "full_address": "431 West 16th Street\nNew York, NY 10011",
+            "id": 607,
+            "latitude": "40.74307",
+            "longitude": "-74.00571599999999",
+            "name": "Highline Ballroom",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 5,
+            "slug": "highline-ballroom",
+            "url": "http://www.ohmyrockness.com/venues/highline-ballroom",
+            "venue_savings_count": 0,
+            "website": "http://www.highlineballroom.com/"
+        }
+    },
+    {
+        "age": "18+",
+        "cached_bands": [
+            {
+                "id": 2625,
+                "name": "Fred Armisen",
+                "profiled": false,
+                "slug": "fred-armisen"
+            },
+            {
+                "id": 43723,
+                "name": "Jim Gaffigan",
+                "profiled": false,
+                "slug": "jim-gaffigan"
+            },
+            {
+                "id": 23765,
+                "name": "David Cross",
+                "profiled": false,
+                "slug": "david-cross"
+            },
+            {
+                "id": 30101,
+                "name": "Janeane Garofalo",
+                "profiled": false,
+                "slug": "janeane-garofalo"
+            },
+            {
+                "id": 2351,
+                "name": "Ted Leo",
+                "profiled": false,
+                "slug": "ted-leo"
+            },
+            {
+                "id": 33679,
+                "name": "Greg Barris",
+                "profiled": false,
+                "slug": "greg-barris"
+            },
+            {
+                "id": 1195,
+                "name": "Regina Spektor",
+                "profiled": false,
+                "slug": "regina-spektor"
+            },
+            {
+                "id": 9778,
+                "name": "Ira Glass",
+                "profiled": false,
+                "slug": "ira-glass"
+            },
+            {
+                "id": 32518,
+                "name": "Jena Friedman",
+                "profiled": false,
+                "slug": "jena-friedman"
+            }
+        ],
+        "id": 227881,
+        "on_sale_at": null,
+        "price": "$50",
+        "price_abbr": "$50",
+        "recommended": 1,
+        "show_savings_count": 10,
+        "sold_out": false,
+        "stage": "Benefit for West Africa Relief",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://concerts.livenation.com/event/00004D57D05F56CC?tm_link=search_msg-0_00004D57D05F56CC",
+        "url": "http://www.ohmyrockness.com/shows/227881-fred-armisen-jim-gaffigan-david-cross-janeane-garofalo-ted-leo-greg-barris-regina-spektor-ira-glass-jena-friedman-irving-plaza",
+        "venue": {
+            "full_address": "17 Irving Place\nNew York, NY 10003",
+            "id": 20,
+            "latitude": "40.734917",
+            "longitude": "-73.9884469",
+            "name": "Irving Plaza",
+            "phone": "212-777-6800",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 23,
+            "slug": "irving-plaza",
+            "url": "http://www.ohmyrockness.com/venues/irving-plaza",
+            "venue_savings_count": 0,
+            "website": "http://www.livenation.com/venue/getVenue/venueId/1515"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 38263,
+                "name": "Fredericks Brown",
+                "profiled": false,
+                "slug": "fredericks-brown"
+            }
+        ],
+        "id": 231871,
+        "on_sale_at": null,
+        "price": "$15",
+        "price_abbr": "$15",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T21:30:00-05:00",
+        "tickets_url": "http://joespub.publictheater.org/reserve/index.aspx?performanceNumber=26207&SiteTheme=JoesPub",
+        "url": "http://www.ohmyrockness.com/shows/231871-fredericks-brown-joe-s-pub",
+        "venue": {
+            "full_address": "425 Lafayette Street\nNew York, NY 10003-7021",
+            "id": 21,
+            "latitude": "40.729126",
+            "longitude": "-73.9920822",
+            "name": "Joe's Pub",
+            "phone": "(212) 539-8770",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 0,
+            "slug": "joe-s-pub",
+            "url": "http://www.ohmyrockness.com/venues/joe-s-pub",
+            "venue_savings_count": 0,
+            "website": "http://www.joespub.com"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 49690,
+                "name": "Mobb Deep",
+                "profiled": false,
+                "slug": "mobb-deep"
+            },
+            {
+                "id": 39423,
+                "name": "Smoke DZA",
+                "profiled": false,
+                "slug": "smoke-dza"
+            },
+            {
+                "id": 32346,
+                "name": "Fat Tony",
+                "profiled": false,
+                "slug": "fat-tony"
+            }
+        ],
+        "id": 220721,
+        "on_sale_at": "2014-10-10T10:00:00-04:00",
+        "price": "$tba",
+        "price_abbr": "$tba",
+        "recommended": 1,
+        "show_savings_count": 5,
+        "sold_out": false,
+        "stage": "Knit Ball",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketweb.com/snl/VenueListings.action?venueId=221784",
+        "url": "http://www.ohmyrockness.com/shows/220721-mobb-deep-smoke-dza-fat-tony-knitting-factory-brooklyn",
+        "venue": {
+            "full_address": "361 Metropolitan Avenue\nBrooklyn, NY 11211",
+            "id": 13,
+            "latitude": "40.7142193",
+            "longitude": "-73.9558328",
+            "name": "Knitting Factory Brooklyn",
+            "phone": "347.529.6696",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 12,
+            "slug": "knitting-factory-brooklyn",
+            "url": "http://www.ohmyrockness.com/venues/knitting-factory-brooklyn",
+            "venue_savings_count": 0,
+            "website": "http://www.knittingfactory.com"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 38236,
+                "name": "Lazer Cake",
+                "profiled": false,
+                "slug": "lazer-cake"
+            },
+            {
+                "id": 45607,
+                "name": "Teen Commandments",
+                "profiled": false,
+                "slug": "teen-commandments"
+            },
+            {
+                "id": 42551,
+                "name": "HITS",
+                "profiled": false,
+                "slug": "hits"
+            }
+        ],
+        "id": 217921,
+        "on_sale_at": null,
+        "price": "$10",
+        "price_abbr": "$10",
+        "recommended": 0,
+        "show_savings_count": 2,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T21:30:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketmaster.com/Mercury-Lounge-tickets-New-York/venue/1101",
+        "url": "http://www.ohmyrockness.com/shows/217921-lazer-cake-teen-commandments-hits-mercury-lounge",
+        "venue": {
+            "full_address": "217 E. Houston Street\nNew York, NY 10002",
+            "id": 12,
+            "latitude": "40.722036",
+            "longitude": "-73.986806",
+            "name": "Mercury Lounge",
+            "phone": "212-260-4700",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 68,
+            "slug": "mercury-lounge",
+            "url": "http://ohmyrockness.com/venues/mercury-lounge",
+            "venue_savings_count": 0,
+            "website": "http://www.mercuryloungenyc.com"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 6024,
+                "name": "Kristeen Young",
+                "profiled": false,
+                "slug": "kristeen-young"
+            },
+            {
+                "id": 118471,
+                "name": "Audra Isadora",
+                "profiled": false,
+                "slug": "audra-isadora"
+            }
+        ],
+        "id": 222031,
+        "on_sale_at": "2014-10-17T12:00:00-04:00",
+        "price": "$10",
+        "price_abbr": "$10",
+        "recommended": 0,
+        "show_savings_count": 2,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T18:30:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketmaster.com/Mercury-Lounge-tickets-New-York/venue/1101",
+        "url": "http://www.ohmyrockness.com/shows/222031-kristeen-young-audra-isadora-mercury-lounge",
+        "venue": {
+            "full_address": "217 E. Houston Street\nNew York, NY 10002",
+            "id": 12,
+            "latitude": "40.722036",
+            "longitude": "-73.986806",
+            "name": "Mercury Lounge",
+            "phone": "212-260-4700",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 73,
+            "slug": "mercury-lounge",
+            "url": "http://www.ohmyrockness.com/venues/mercury-lounge",
+            "venue_savings_count": 0,
+            "website": "http://www.mercuryloungenyc.com"
+        }
+    },
+    {
+        "age": "18+",
+        "cached_bands": [
+            {
+                "id": 36295,
+                "name": "Deafheaven",
+                "profiled": true,
+                "slug": "deafheaven"
+            },
+            {
+                "id": 43352,
+                "name": "Beast Patrol",
+                "profiled": false,
+                "slug": "beast-patrol"
+            }
+        ],
+        "id": 227531,
+        "on_sale_at": "2014-10-29T12:00:00-04:00",
+        "price": "Free",
+        "price_abbr": "Free",
+        "recommended": 1,
+        "show_savings_count": 14,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketmaster.com/event/00004D57DA8B5DBA",
+        "url": "http://www.ohmyrockness.com/shows/227531-deafheaven-beast-patrol-music-hall-of-williamsburg",
+        "venue": {
+            "full_address": "66 North Sixth Street\nBrooklyn, NY 11211",
+            "id": 662,
+            "latitude": "40.7192783",
+            "longitude": "-73.9616949",
+            "name": "Music Hall of Williamsburg",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 44,
+            "slug": "music-hall-of-williamsburg",
+            "url": "http://www.ohmyrockness.com/venues/music-hall-of-williamsburg",
+            "venue_savings_count": 0,
+            "website": "http://www.musichallofwilliamsburg.com/"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 48863,
+                "name": "DJ Mustard",
+                "profiled": false,
+                "slug": "dj-mustard"
+            },
+            {
+                "id": 40375,
+                "name": "Krystal Klear",
+                "profiled": false,
+                "slug": "krystal-klear"
+            }
+        ],
+        "id": 233831,
+        "on_sale_at": null,
+        "price": "$15 adv. / $25 door",
+        "price_abbr": "$15a / $25d",
+        "recommended": 0,
+        "show_savings_count": 1,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T23:00:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=www.ticketfly.com/event/716241-dj-mustard-krystal-klear-in-new-york/",
+        "url": "http://www.ohmyrockness.com/shows/233831-dj-mustard-krystal-klear-output",
+        "venue": {
+            "full_address": "74 Wythe Avenue\nBrooklyn, NY 11211",
+            "id": 1989,
+            "latitude": "40.7222535",
+            "longitude": "-73.95781389999999",
+            "name": "Output",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 7,
+            "slug": "output",
+            "url": "http://www.ohmyrockness.com/venues/output",
+            "venue_savings_count": 0,
+            "website": "http://www.outputclub.com/"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 56633,
+                "name": "Free Pizza",
+                "profiled": false,
+                "slug": "free-pizza"
+            },
+            {
+                "id": 13411,
+                "name": "Big Huge",
+                "profiled": false,
+                "slug": "big-huge"
+            },
+            {
+                "id": 101713,
+                "name": "Fern Mayo",
+                "profiled": false,
+                "slug": "fern-mayo"
+            },
+            {
+                "id": 94373,
+                "name": "granny",
+                "profiled": false,
+                "slug": "granny"
+            }
+        ],
+        "id": 232111,
+        "on_sale_at": null,
+        "price": "$7",
+        "price_abbr": "$7",
+        "recommended": 0,
+        "show_savings_count": 1,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "",
+        "url": "http://www.ohmyrockness.com/shows/232111-free-pizza-big-huge-fern-mayo-granny-palisades",
+        "venue": {
+            "full_address": "906 Broadway\nBrooklyn, NY 11206",
+            "id": 3353,
+            "latitude": "40.697669",
+            "longitude": "-73.937007",
+            "name": "Palisades",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 14,
+            "slug": "palisades",
+            "url": "http://www.ohmyrockness.com/venues/palisades",
+            "venue_savings_count": 0,
+            "website": "https://www.facebook.com/palisadesbk"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 50,
+                "name": "TV on the Radio",
+                "profiled": false,
+                "slug": "tv-on-the-radio"
+            }
+        ],
+        "id": 227741,
+        "on_sale_at": null,
+        "price": "$tba",
+        "price_abbr": "$tba",
+        "recommended": 1,
+        "show_savings_count": 28,
+        "sold_out": false,
+        "stage": "Entry With Purchase",
+        "starts_at": "2014-11-19T18:30:00-05:00",
+        "tickets_url": "http://www.roughtrade.com/events/2014/11/811",
+        "url": "http://www.ohmyrockness.com/shows/227741-tv-on-the-radio-rough-trade",
+        "venue": {
+            "full_address": "64 N 9th St \nBrooklyn, NY 11249",
+            "id": 2197,
+            "latitude": "40.7209863",
+            "longitude": "-73.95985019999999",
+            "name": "Rough Trade",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 32,
+            "slug": "rough-trade",
+            "url": "http://www.ohmyrockness.com/venues/rough-trade",
+            "venue_savings_count": 0,
+            "website": ""
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 49835,
+                "name": "Chimes",
+                "profiled": false,
+                "slug": "chimes"
+            },
+            {
+                "id": 44739,
+                "name": "Half Waif",
+                "profiled": false,
+                "slug": "half-waif"
+            },
+            {
+                "id": 56573,
+                "name": "Madam West",
+                "profiled": false,
+                "slug": "madam-west"
+            },
+            {
+                "id": 91763,
+                "name": "Ellen O.",
+                "profiled": false,
+                "slug": "ellen-o"
+            }
+        ],
+        "id": 226021,
+        "on_sale_at": null,
+        "price": "$tba",
+        "price_abbr": "$tba",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "",
+        "url": "http://www.ohmyrockness.com/shows/226021-chimes-half-waif-madam-west-ellen-o-shea-stadium",
+        "venue": {
+            "full_address": "20 Meadow Street\nbetween Bogart and Waterbury\nBrooklyn, NY 11206",
+            "id": 1037,
+            "latitude": "40.7047738",
+            "longitude": "-73.9418603",
+            "name": "Shea Stadium",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 17,
+            "slug": "shea-stadium",
+            "url": "http://www.ohmyrockness.com/venues/shea-stadium",
+            "venue_savings_count": 0,
+            "website": "http://www.liveatsheastadium.com/"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 123461,
+                "name": "Thomas Carnacki",
+                "profiled": false,
+                "slug": "thomas-carnacki"
+            },
+            {
+                "id": 50838,
+                "name": "Jesse Quattro",
+                "profiled": false,
+                "slug": "jesse-quattro"
+            },
+            {
+                "id": 123471,
+                "name": "Freddi Price",
+                "profiled": false,
+                "slug": "freddi-price"
+            },
+            {
+                "id": 123481,
+                "name": "Leyna Marika Papach",
+                "profiled": false,
+                "slug": "leyna-marika-papach"
+            }
+        ],
+        "id": 234571,
+        "on_sale_at": null,
+        "price": "$8",
+        "price_abbr": "$8",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "",
+        "url": "http://www.ohmyrockness.com/shows/234571-thomas-carnacki-jesse-quattro-freddi-price-leyna-marika-papach-silent-barn",
+        "venue": {
+            "full_address": "603 Bushwick Ave.\nBrooklyn, NY 11206",
+            "id": 480,
+            "latitude": "40.698669",
+            "longitude": "-73.934179",
+            "name": "Silent Barn",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 6,
+            "slug": "silent-barn",
+            "url": "http://www.ohmyrockness.com/venues/silent-barn",
+            "venue_savings_count": 0,
+            "website": "http://www.silentbarn.org/"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 39296,
+                "name": "St. Lucia",
+                "profiled": true,
+                "slug": "st-lucia"
+            },
+            {
+                "id": 46721,
+                "name": "Haerts",
+                "profiled": false,
+                "slug": "haerts"
+            }
+        ],
+        "id": 198821,
+        "on_sale_at": "2014-08-16T12:00:00-04:00",
+        "price": "$25",
+        "price_abbr": "$25",
+        "recommended": 1,
+        "show_savings_count": 22,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketmaster.com/Terminal-5-tickets-New-York/venue/1112",
+        "url": "http://www.ohmyrockness.com/shows/198821-st-lucia-haerts-terminal-5",
+        "venue": {
+            "full_address": "610 W. 56th Street\nNew York, NY 10019",
+            "id": 688,
+            "latitude": "40.76970800000001",
+            "longitude": "-73.992762",
+            "name": "Terminal 5",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 37,
+            "slug": "terminal-5",
+            "url": "http://www.ohmyrockness.com/venues/terminal-5",
+            "venue_savings_count": 0,
+            "website": "http://terminal5nyc.com"
+        }
+    },
+    {
+        "age": "16+",
+        "cached_bands": [
+            {
+                "id": 3807,
+                "name": "Jonathan Richman",
+                "profiled": false,
+                "slug": "jonathan-richman"
+            }
+        ],
+        "id": 210221,
+        "on_sale_at": null,
+        "price": "$20",
+        "price_abbr": "$20",
+        "recommended": 1,
+        "show_savings_count": 16,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=www.ticketfly.com/purchase/event/676983/tfly",
+        "url": "http://www.ohmyrockness.com/shows/210221-jonathan-richman-the-bell-house",
+        "venue": {
+            "full_address": "149 7th Street\nBrooklyn, NY 11215",
+            "id": 877,
+            "latitude": "40.673735",
+            "longitude": "-73.991658",
+            "name": "The Bell House",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 16,
+            "slug": "the-bell-house",
+            "url": "http://www.ohmyrockness.com/venues/the-bell-house",
+            "venue_savings_count": 0,
+            "website": "http://www.thebellhouseny.com/"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 101363,
+                "name": "Animal Talk",
+                "profiled": false,
+                "slug": "animal-talk"
+            },
+            {
+                "id": 39414,
+                "name": "Goodbyemotel",
+                "profiled": false,
+                "slug": "goodbyemotel"
+            },
+            {
+                "id": 119281,
+                "name": "VHS Collection",
+                "profiled": false,
+                "slug": "vhs-collection"
+            },
+            {
+                "id": 122431,
+                "name": "Cheap Satori",
+                "profiled": false,
+                "slug": "cheap-satori"
+            }
+        ],
+        "id": 232211,
+        "on_sale_at": null,
+        "price": "$10",
+        "price_abbr": "$10",
+        "recommended": 0,
+        "show_savings_count": 1,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T19:30:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketweb.com/t3/sale/SaleEventDetail?dispatch=loadSelectionData&eventId=5441005&pl=boweryelectric",
+        "url": "http://www.ohmyrockness.com/shows/232211-animal-talk-goodbyemotel-vhs-collection-cheap-satori-the-bowery-electric",
+        "venue": {
+            "full_address": "327 Bowery\nNew York, NY 10003",
+            "id": 981,
+            "latitude": "40.7257",
+            "longitude": "-73.99167299999999",
+            "name": "The Bowery Electric",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 9,
+            "slug": "the-bowery-electric",
+            "url": "http://www.ohmyrockness.com/venues/the-bowery-electric",
+            "venue_savings_count": 0,
+            "website": "http://www.theboweryelectric.com/index.html"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 349,
+                "name": "The Hold Steady",
+                "profiled": true,
+                "slug": "the-hold-steady"
+            }
+        ],
+        "id": 230881,
+        "on_sale_at": null,
+        "price": "Free",
+        "price_abbr": "Free",
+        "recommended": 1,
+        "show_savings_count": 8,
+        "sold_out": false,
+        "stage": "Free with RSVP",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "http://boxoffice.stubhub.com/event/Chrysler200PresentsTheHoldSteady",
+        "url": "http://www.ohmyrockness.com/shows/230881-the-hold-steady-the-space-at-westbury",
+        "venue": {
+            "full_address": "250 Post Avenue\nWestbury, NY 11590",
+            "id": 2164,
+            "latitude": "40.758172",
+            "longitude": "-73.587475",
+            "name": "The Space at Westbury",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 5,
+            "slug": "the-space-at-westbury",
+            "url": "http://www.ohmyrockness.com/venues/the-space-at-westbury",
+            "venue_savings_count": 0,
+            "website": "http://www.thespaceatwestbury.com/"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 91893,
+                "name": "Soft Lit",
+                "profiled": false,
+                "slug": "soft-lit"
+            },
+            {
+                "id": 95143,
+                "name": "Maymind",
+                "profiled": false,
+                "slug": "maymind"
+            },
+            {
+                "id": 44287,
+                "name": "Headaches",
+                "profiled": false,
+                "slug": "headaches"
+            },
+            {
+                "id": 54723,
+                "name": "Kazimier",
+                "profiled": false,
+                "slug": "kazimier"
+            }
+        ],
+        "id": 234481,
+        "on_sale_at": null,
+        "price": "$8",
+        "price_abbr": "$8",
+        "recommended": 0,
+        "show_savings_count": 1,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=https://www.ticketfly.com/purchase/event/719061",
+        "url": "http://www.ohmyrockness.com/shows/234481-soft-lit-maymind-headaches-kazimier-trans-pecos",
+        "venue": {
+            "full_address": "915 Wyckoff Avenue\nRidgewood, NY 11385",
+            "id": 2213,
+            "latitude": "40.6969934",
+            "longitude": "-73.9062936",
+            "name": "Trans-Pecos",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 8,
+            "slug": "trans-pecos",
+            "url": "http://www.ohmyrockness.com/venues/trans-pecos",
+            "venue_savings_count": 0,
+            "website": ""
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 51532,
+                "name": "Gozer",
+                "profiled": false,
+                "slug": "gozer"
+            },
+            {
+                "id": 36733,
+                "name": "Games",
+                "profiled": false,
+                "slug": "games"
+            },
+            {
+                "id": 28401,
+                "name": "Foster Care",
+                "profiled": false,
+                "slug": "foster-care"
+            },
+            {
+                "id": 53921,
+                "name": "Outta Gas",
+                "profiled": false,
+                "slug": "outta-gas"
+            }
+        ],
+        "id": 229281,
+        "on_sale_at": null,
+        "price": "$8",
+        "price_abbr": "$8",
+        "recommended": 0,
+        "show_savings_count": 2,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-19T20:00:00-05:00",
+        "tickets_url": "",
+        "url": "http://www.ohmyrockness.com/shows/229281-gozer-games-foster-care-outta-gas-union-pool",
+        "venue": {
+            "full_address": "484 Union Ave\nBrooklyn, NY 11211",
+            "id": 55,
+            "latitude": "40.7154444",
+            "longitude": "-73.952064",
+            "name": "Union Pool",
+            "phone": "(718) 609-0484",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 10,
+            "slug": "union-pool",
+            "url": "http://www.ohmyrockness.com/venues/union-pool",
+            "venue_savings_count": 0,
+            "website": "http://www.union-pool.com"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 3350,
+                "name": "Kid Millions (of Oneida)",
+                "profiled": false,
+                "slug": "kid-millions-of-oneida"
+            },
+            {
+                "id": 113601,
+                "name": "Tony Diodore",
+                "profiled": false,
+                "slug": "tony-diodore"
+            },
+            {
+                "id": 9015,
+                "name": "Laurie Anderson (special guest)",
+                "profiled": false,
+                "slug": "laurie-anderson"
+            }
+        ],
+        "id": 216331,
+        "on_sale_at": null,
+        "price": "$20",
+        "price_abbr": "$20",
+        "recommended": 0,
+        "show_savings_count": 4,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-20T22:30:00-05:00",
+        "tickets_url": "http://lepoissonrouge.com/lpr_events/kid-millions-and-tony-diodore-november-20th-2014/",
+        "url": "http://ohmyrockness.com/shows/216331-kid-millions-of-oneida-tony-diodore-laurie-anderson-special-guest-le-poisson-rouge",
+        "venue": {
+            "full_address": "158 Bleecker Street\nNew York, NY 10012",
+            "id": 834,
+            "latitude": "40.7284972",
+            "longitude": "-74.0000671",
+            "name": "(le) poisson rouge",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 4,
+            "slug": "le-poisson-rouge",
+            "url": "http://ohmyrockness.com/venues/le-poisson-rouge",
+            "venue_savings_count": 0,
+            "website": "http://lepoissonrouge.com/"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 86983,
+                "name": "Shamir",
+                "profiled": false,
+                "slug": "shamir"
+            },
+            {
+                "id": 31070,
+                "name": "Yvette",
+                "profiled": true,
+                "slug": "yvette"
+            },
+            {
+                "id": 108011,
+                "name": "Mister Small",
+                "profiled": false,
+                "slug": "mister-small"
+            }
+        ],
+        "id": 228331,
+        "on_sale_at": null,
+        "price": "$15",
+        "price_abbr": "$15",
+        "recommended": 0,
+        "show_savings_count": 4,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-20T20:00:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=www.ticketfly.com/purchase/event/710665",
+        "url": "http://www.ohmyrockness.com/shows/228331-shamir-yvette-mister-small-baby-s-all-right",
+        "venue": {
+            "full_address": "146 Broadway\nBrooklyn, NY 11211",
+            "id": 2180,
+            "latitude": "40.709985",
+            "longitude": "-73.96347",
+            "name": "Baby's All Right",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 30,
+            "slug": "baby-s-all-right",
+            "url": "http://www.ohmyrockness.com/venues/baby-s-all-right",
+            "venue_savings_count": 0,
+            "website": "http://babysallright.com/"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 37692,
+                "name": "Time Wharp",
+                "profiled": false,
+                "slug": "time-wharp"
+            },
+            {
+                "id": 114961,
+                "name": "Yung AOL",
+                "profiled": false,
+                "slug": "yung-aol"
+            },
+            {
+                "id": 120161,
+                "name": "Advanced Boi",
+                "profiled": false,
+                "slug": "advanced-boi"
+            }
+        ],
+        "id": 228341,
+        "on_sale_at": null,
+        "price": "$5",
+        "price_abbr": "$5",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-20T23:59:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=www.ticketfly.com/purchase/event/709647",
+        "url": "http://www.ohmyrockness.com/shows/228341-time-wharp-yung-aol-advanced-boi-baby-s-all-right",
+        "venue": {
+            "full_address": "146 Broadway\nBrooklyn, NY 11211",
+            "id": 2180,
+            "latitude": "40.709985",
+            "longitude": "-73.96347",
+            "name": "Baby's All Right",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 31,
+            "slug": "baby-s-all-right",
+            "url": "http://ohmyrockness.com/venues/baby-s-all-right",
+            "venue_savings_count": 0,
+            "website": "http://babysallright.com/"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 27541,
+                "name": "Not Blood, Paint",
+                "profiled": false,
+                "slug": "not-blood-paint"
+            },
+            {
+                "id": 123661,
+                "name": "Omingnome",
+                "profiled": false,
+                "slug": "omingnome"
+            }
+        ],
+        "id": 234901,
+        "on_sale_at": null,
+        "price": "Free",
+        "price_abbr": "Free",
+        "recommended": 0,
+        "show_savings_count": 0,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-20T22:00:00-05:00",
+        "tickets_url": "",
+        "url": "http://www.ohmyrockness.com/shows/234901-not-blood-paint-omingnome-baby-s-all-right",
+        "venue": {
+            "full_address": "146 Broadway\nBrooklyn, NY 11211",
+            "id": 2180,
+            "latitude": "40.709985",
+            "longitude": "-73.96347",
+            "name": "Baby's All Right",
+            "phone": "",
+            "recommended": false,
+            "region_id": 1,
+            "shows_count": 28,
+            "slug": "baby-s-all-right",
+            "url": "http://www.ohmyrockness.com/venues/baby-s-all-right",
+            "venue_savings_count": 0,
+            "website": "http://babysallright.com/"
+        }
+    },
+    {
+        "age": "All Ages",
+        "cached_bands": [
+            {
+                "id": 22837,
+                "name": "Brooklyn Youth Chorus",
+                "profiled": false,
+                "slug": "brooklyn-youth-chorus"
+            },
+            {
+                "id": 36942,
+                "name": "Bryce Dessner of The National (co-curator)",
+                "profiled": false,
+                "slug": "bryce-dessner-of-the-national"
+            },
+            {
+                "id": 39984,
+                "name": "Richard Reed Parry (co-curator)",
+                "profiled": false,
+                "slug": "richard-reed-parry"
+            }
+        ],
+        "id": 206571,
+        "on_sale_at": null,
+        "price": "$20",
+        "price_abbr": "$20",
+        "recommended": 1,
+        "show_savings_count": 3,
+        "sold_out": false,
+        "stage": "Black Mountain Songs",
+        "starts_at": "2014-11-20T19:30:00-05:00",
+        "tickets_url": "http://www.bam.org/music/2014/black-mountain-songs",
+        "url": "http://www.ohmyrockness.com/shows/206571-brooklyn-youth-chorus-bryce-dessner-of-the-national-co-curator-richard-reed-parry-co-curator-bam-brooklyn-academy-of-music",
+        "venue": {
+            "full_address": "30 Lafayette Avenue\nBrooklyn, NY 11217",
+            "id": 694,
+            "latitude": "40.6864624",
+            "longitude": "-73.9777052",
+            "name": "BAM: Brooklyn Academy of Music",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 10,
+            "slug": "bam-brooklyn-academy-of-music",
+            "url": "http://www.ohmyrockness.com/venues/bam-brooklyn-academy-of-music",
+            "venue_savings_count": 0,
+            "website": "http://www.bam.org/"
+        }
+    },
+    {
+        "age": "18+",
+        "cached_bands": [
+            {
+                "id": 45751,
+                "name": "Ryan Hemsworth",
+                "profiled": false,
+                "slug": "ryan-hemsworth"
+            },
+            {
+                "id": 116331,
+                "name": "Tennyson",
+                "profiled": false,
+                "slug": "tennyson"
+            }
+        ],
+        "id": 195541,
+        "on_sale_at": "2014-08-08T12:00:00-04:00",
+        "price": "$20",
+        "price_abbr": "$20",
+        "recommended": 0,
+        "show_savings_count": 6,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-20T21:00:00-05:00",
+        "tickets_url": "http://www.awin1.com/cread.php?awinmid=4103&awinaffid=139690&clickref=NYC&p=http://www.ticketmaster.com/ryan-hemsworth-new-york-new-york-11-20-2014/event/00004CFFFE9387E6",
+        "url": "http://www.ohmyrockness.com/shows/195541-ryan-hemsworth-tennyson-bowery-ballroom",
+        "venue": {
+            "full_address": "6 Delancey Street\n@ Bowery\nNew York, NY 10002",
+            "id": 1,
+            "latitude": "40.72040640000001",
+            "longitude": "-73.9933583",
+            "name": "Bowery Ballroom",
+            "phone": "(212) 533-2111",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 50,
+            "slug": "bowery-ballroom",
+            "url": "http://www.ohmyrockness.com/venues/bowery-ballroom",
+            "venue_savings_count": 1,
+            "website": "http://www.boweryballroom.com"
+        }
+    },
+    {
+        "age": "21+",
+        "cached_bands": [
+            {
+                "id": 707,
+                "name": "We Are Scientists",
+                "profiled": false,
+                "slug": "we-are-scientists"
+            },
+            {
+                "id": 38197,
+                "name": "TEEN",
+                "profiled": true,
+                "slug": "teen"
+            },
+            {
+                "id": 33267,
+                "name": "Cookies",
+                "profiled": false,
+                "slug": "cookies"
+            }
+        ],
+        "id": 222541,
+        "on_sale_at": "2014-10-16T10:00:00-04:00",
+        "price": "$17",
+        "price_abbr": "$17",
+        "recommended": 1,
+        "show_savings_count": 19,
+        "sold_out": false,
+        "stage": "",
+        "starts_at": "2014-11-20T20:00:00-05:00",
+        "tickets_url": "http://www.shareasale.com/r.cfm?u=458816&b=234786&m=27601&afftrack=nyc&urllink=www.ticketfly.com/purchase/event/685487",
+        "url": "http://www.ohmyrockness.com/shows/222541-we-are-scientists-teen-cookies-brooklyn-bowl",
+        "venue": {
+            "full_address": "61 Wythe Avenue\nBrooklyn, NY 11211",
+            "id": 1063,
+            "latitude": "40.7218878",
+            "longitude": "-73.9573817",
+            "name": "Brooklyn Bowl",
+            "phone": "",
+            "recommended": true,
+            "region_id": 1,
+            "shows_count": 26,
+            "slug": "brooklyn-bowl",
+            "url": "http://www.ohmyrockness.com/venues/brooklyn-bowl",
+            "venue_savings_count": 0,
+            "website": "http://www.brooklynbowl.com"
+        }
+    }
+]
