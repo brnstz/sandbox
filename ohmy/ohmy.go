@@ -9,9 +9,20 @@ import (
 	"net/http"
 )
 
+type Show struct {
+	Bands []*Band `json:"cached_bands"`
+}
+
+type Band struct {
+	Name string
+}
+
 const (
 	base = `http://www.ohmyrockness.com/`
 	api  = `http://www.ohmyrockness.com/api/shows.json?index=true&page=1&per=50&regioned=1`
+
+	// FIXME: when does this change?
+	token = `Token token="3b35f8a73dabd5f14b1cac167a14c1f6"`
 )
 
 func Doit() {
@@ -46,7 +57,7 @@ func Doit() {
 		fmt.Println(c.Name, c.Value)
 	}
 	req.Header.Add(`X-CSRF-Token`, content)
-	req.Header.Add(`Authorization`, `Token token="3b35f8a73dabd5f14b1cac167a14c1f6"`)
+	req.Header.Add(`Authorization`, token)
 	apiRes, err := client.Do(req)
 	if err != nil {
 		panic(err)
