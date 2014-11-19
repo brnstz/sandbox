@@ -9,12 +9,23 @@ import (
 	"net/http"
 )
 
+/* think about this later
+type TrackSource int
+
+const (
+	spotify TrackSource = iota
+)
+*/
+
 type Show struct {
 	Bands []*Band `json:"cached_bands"`
 }
 
 type Band struct {
 	Name string
+}
+
+type Track struct {
 }
 
 const (
