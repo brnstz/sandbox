@@ -2,13 +2,14 @@ package ohmy_test
 
 import (
 	"github.com/brnstz/sandbox/ohmy"
-	"gopkg.in/mgo.v2"
+	"labix.org/v2/mgo"
 
 	"testing"
 )
 
 func TestOhMy(t *testing.T) {
 	ohmy.Doit()
+
 	s, err := mgo.Dial("192.168.59.103")
 	if err != nil {
 		panic(err)
@@ -22,4 +23,5 @@ func TestOhMy(t *testing.T) {
 	if err != nil {
 		panic(err)
 	}
+
 }

@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-    "net/url"
 )
 
 type Show struct {
@@ -22,31 +21,33 @@ type Track struct {
 }
 
 const (
-    // The base URL of the API, and the index page. We use index page
-    // to get the CSRF token.
+	// The base URL of the API, and the index page. We use index page
+	// to get the CSRF token.
 	base = "http://www.ohmyrockness.com/"
 
-    // The API endpoint
-    api = "api/shows.json"
+	// The API endpoint
+	//api = "api/shows.json"
 
-    // Value for NY region (parameter name: regioned)
-    regioned = 1
+	// Value for NY region (parameter name: regioned)
+	regioned = 1
 
-    // Number of records per page (parameter name: per)
-    per = 50
+	// Number of records per page (parameter name: per)
+	per = 50
 
-	api  = `http://www.ohmyrockness.com/api/shows.json?index=true&page=1&per=50&regioned=1`
+	api = `http://www.ohmyrockness.com/api/shows.json?index=true&page=1&per=50&regioned=1`
 
 	// FIXME: when does this change?
 	token = `Token token="3b35f8a73dabd5f14b1cac167a14c1f6"`
 )
 
+/*
 func GetShows(page int) *[]Show {
     v := url.Values{}
 
     v.Add(
 
 }
+*/
 
 func Doit() {
 
