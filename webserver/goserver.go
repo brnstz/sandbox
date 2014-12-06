@@ -55,6 +55,12 @@ func main() {
 	}
 	http.Handle("drink.brnstz.com/", httputil.NewSingleHostReverseProxy(drinkUrl))
 
+	listenUrl, err := url.Parse("http://localhost:8084")
+	if err != nil {
+		panic(err)
+	}
+	http.Handle("listen.brnstz.com/", httputil.NewSingleHostReverseProxy(listenUrl))
+
 	err = http.ListenAndServe(":80", nil)
 
 	if err != nil {
