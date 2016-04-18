@@ -67,6 +67,11 @@ func main() {
 	}
 	http.Handle("ttg.brnstz.com/", httputil.NewSingleHostReverseProxy(ttgUrl))
 
+	colorsUrl, err := url.Parse("http://localhost:8086")
+	if err != nil {
+		panic(err)
+	}
+	http.Handle("colors.brnstz.com/", httputil.NewSingleHostReverseProxy(colorsUrl))
 
 	err = http.ListenAndServe(":80", nil)
 
