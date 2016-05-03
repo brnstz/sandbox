@@ -61,17 +61,17 @@ func main() {
 	}
 	http.Handle("listen.brnstz.com/", httputil.NewSingleHostReverseProxy(listenUrl))
 
-	ttgUrl, err := url.Parse("http://localhost:8085")
-	if err != nil {
-		panic(err)
-	}
-	http.Handle("ttg.brnstz.com/", httputil.NewSingleHostReverseProxy(ttgUrl))
-
 	colorsUrl, err := url.Parse("http://localhost:8086")
 	if err != nil {
 		panic(err)
 	}
 	http.Handle("colors.brnstz.com/", httputil.NewSingleHostReverseProxy(colorsUrl))
+
+	busUrl, err := url.Parse("http://localhost:8000")
+	if err != nil {
+		panic(err)
+	}
+	http.Handle("bus.brnstz.com/", httputil.NewSingleHostReverseProxy(busUrl))
 
 	err = http.ListenAndServe(":80", nil)
 
