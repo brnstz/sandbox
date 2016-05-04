@@ -21,8 +21,8 @@ const (
 	homepageHTML = `
 <html>
     <head>
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         <style>
@@ -44,11 +44,11 @@ const (
                 }
             });
 
-            var redIcon = new colorIcon({iconUrl: 'http://brnstz.com/images/marker-icon-red.png'});
-            var greenIcon = new colorIcon({iconUrl: 'http://brnstz.com/images/marker-icon-green.png'});
-            var yellowIcon = new colorIcon({iconUrl: 'http://brnstz.com/images/marker-icon-yellow.png'});
-            var blueIcon = new colorIcon({iconUrl: 'http://brnstz.com/images/marker-icon.png'});
-            var greyIcon = new colorIcon({iconUrl: 'http://brnstz.com/images/marker-icon-grey.png'});
+            var redIcon = new colorIcon({iconUrl: 'https://brnstz.com/images/marker-icon-red.png'});
+            var greenIcon = new colorIcon({iconUrl: 'https://brnstz.com/images/marker-icon-green.png'});
+            var yellowIcon = new colorIcon({iconUrl: 'https://brnstz.com/images/marker-icon-yellow.png'});
+            var blueIcon = new colorIcon({iconUrl: 'https://brnstz.com/images/marker-icon.png'});
+            var greyIcon = new colorIcon({iconUrl: 'https://brnstz.com/images/marker-icon-grey.png'});
 
             $(document).ready(function() {
                 $.getJSON("svc/init", function(data) {
@@ -417,7 +417,7 @@ func initVals(w http.ResponseWriter, r *http.Request) {
 	i.Lat = 40.7263
 	i.Lon = -73.9456
 	i.DefaultZoom = 15
-	i.UrlTemplate = `http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png`
+	i.UrlTemplate = `https://otile1-s.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png`
 	i.Options.MaxZoom = 20
 
 	b, err := json.Marshal(i)
