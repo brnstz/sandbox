@@ -15,7 +15,7 @@ func main() {
 
 	log.Printf("%v %v %v", addr, network, err)
 	for lo = 0; lo < math.MaxUint64; lo++ {
-		for hi = 0; hi < math.MaxUint64; lo++ {
+		for hi = 0; hi < math.MaxUint64; hi++ {
 			for offset = 0; offset < net.IPv6len/2; offset++ {
 				ip[offset] = byte(((0xff << (offset * 8)) & lo) >> (offset * 8))
 			}
