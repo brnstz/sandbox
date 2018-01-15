@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"math"
 	"net"
@@ -16,6 +17,8 @@ func main() {
 
 	addr, network, err := net.ParseCIDR("fd00::/8")
 	ip := make(net.IP, net.IPv6len)
+
+	i := 0
 
 	log.Printf("%v %v %v", addr, network, err)
 
@@ -35,8 +38,8 @@ func main() {
 				// Set the value of the byte as this offset
 				shiftBits = ((net.IPv6len - 1) - uint(offset)) * bitsInByte
 				ip[offset] = byte(((mask << shiftBits) & lo) >> shiftBits)
-				log.Printf("lo offset: %v shiftbits: %v value: %v", offset, shiftBits, ip[offset])
 				/*
+					log.Printf("lo offset: %v shiftbits: %v value: %v", offset, shiftBits, ip[offset])
 					byteValue = byte(((mask << shiftBits & lo)) >> shiftBits
 					ip[offset] = byteValue
 				*/
@@ -45,8 +48,9 @@ func main() {
 			for offset = (net.IPv6len / 2) - 1; offset >= 0; offset-- {
 				// Set the value of the byte as this offset
 				shiftBits = ((net.IPv6len - 1) - (net.IPv6len / 2) - uint(offset)) * bitsInByte
-				log.Printf("hi offset: %v shiftbits: %v", offset, shiftBits)
+				ip[offset] = byte(((mask << shiftBits) & hi) >> shiftBits)
 				/*
+					log.Printf("hi offset: %v shiftbits: %v value: %v", offset, shiftBits, ip[offset])
 					byteValue = byte(((mask << shiftBits & lo)) >> shiftBits
 					ip[offset] = byteValue
 				*/
@@ -62,7 +66,10 @@ func main() {
 				}
 			*/
 
-			//log.Println(ip)
+			if i%100000000 == 0 {
+				fmt.Println(ip)
+			}
+			i++
 		}
 	}
 
