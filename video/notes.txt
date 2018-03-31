@@ -1,0 +1,8 @@
+ffmpeg -i  -r 1 -s WxH -f image2 foo-%03d.jpeg
+
+ffmpeg -i bf.mkv -r 1 -vcodec png -f image2 foo-%03d.png
+
+ffmpeg -i bf.mkv -r .1 -f image2pipe -vcodec png - > out.png2
+
+ffmpeg -i bf.mkv -r .1 -f image2pipe -vcodec png - | go run video.go
+
