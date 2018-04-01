@@ -4,5 +4,9 @@ ffmpeg -i bf.mkv -r 1 -vcodec png -f image2 foo-%03d.png
 
 ffmpeg -i bf.mkv -r .1 -f image2pipe -vcodec png - > out.png2
 
-ffmpeg -i bf.mkv -r .1 -f image2pipe -vcodec png - | go run video.go
+ffmpeg -i bf.mkv -r .1 -f image2pipe -vcodec png - 2>/dev/null | go run video.go
 
+To have launchd start influxdb now and restart at login:
+  brew services start influxdb
+Or, if you don't want/need a background service you can just run:
+  influxd -config /usr/local/etc/influxdb.conf
