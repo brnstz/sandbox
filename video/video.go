@@ -60,7 +60,6 @@ func main() {
 					"a": a,
 				}
 
-				log.Println(x, y, t)
 				pt, err := influxdb.NewPoint(
 					"movie_color", tags, fields, t,
 				)
@@ -76,6 +75,7 @@ func main() {
 			}
 		}
 
+		log.Printf("finished frame: %v %v", frame, t)
 		frame++
 		t = t.Add(time.Second * 1)
 	}

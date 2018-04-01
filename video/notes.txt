@@ -6,6 +6,16 @@ ffmpeg -i bf.mkv -r .1 -f image2pipe -vcodec png - > out.png2
 
 ffmpeg -i bf.mkv -r .1 -f image2pipe -vcodec png - 2>/dev/null | go run video.go
 
+ffmpeg -i bf.mkv -r 1 -s 100x100 -f image2pipe -vcodec png - 2>/dev/null | go run video.go
+
+
+select median("r"), median("g"), median("b") from movie_color group by frame order by time;
+
+select mean("r"), mean("g"), mean("b") from "movie_color";
+
+select * from movie_color where x = '0' limit 10;
+select "r", "x", "y", "frame" from movie_color where time = 1522594855411308000;
+
 To have launchd start influxdb now and restart at login:
   brew services start influxdb
 Or, if you don't want/need a background service you can just run:
