@@ -9,6 +9,25 @@ import (
 	"github.com/mattetti/audio/riff"
 )
 
+func processChunk(d *wav.Decoder, chunk *riff.Chunk) error {
+	var (
+		n   int
+		err error
+	)
+
+	p := make([]byte, d.BitDepth/8)
+
+	for !chunk.IsFullyRead() {
+		n, err = chunk.Read(p)
+		if err != nil {
+			return err
+		}
+		log.Printf("%v %v %v", d.BitDepth, n, p)
+	}
+
+	return nil
+}
+
 func checkBeats(input string) (int, error) {
 	var (
 		chunk *riff.Chunk
@@ -27,7 +46,7 @@ func checkBeats(input string) (int, error) {
 		return 0, err
 	}
 
-	for true {
+	for !d.EOF() {
 
 		chunk, err = d.NextChunk()
 		if err != nil {
@@ -37,6 +56,8 @@ func checkBeats(input string) (int, error) {
 				return 0, err
 			}
 		}
+
+		processChunk(d, chunk)
 
 		log.Printf("%v %v", i, chunk)
 		chunk.Done()
